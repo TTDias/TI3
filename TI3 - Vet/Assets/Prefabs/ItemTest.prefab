@@ -163,6 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbe13faa0628a94a90ada7bce584129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 0}
+  item: {fileID: 0}
+  broken: {fileID: 0}
+  repaired: {fileID: 0}
 --- !u!1 &7127263595534189157
 GameObject:
   m_ObjectHideFlags: 0
