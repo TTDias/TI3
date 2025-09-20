@@ -12,4 +12,9 @@ public class SceneChangeButtons : MonoBehaviour
     {
         SceneManager.LoadScene("checklist");
     }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
 }
