@@ -2,19 +2,19 @@
     <Style src="project://database/Assets/UI/UI%20Toolkit/mybutton.uss?fileID=7433441132597879392&amp;guid=bce9ee704d0fb30468b81a77d805537c&amp;type=3#mybutton" />
     <ui:VisualElement name="conteiner" style="flex-grow: 1; flex-direction: column;">
         <ui:VisualElement name="hearder" style="flex-grow: 1; -unity-background-image-tint-color: rgb(255, 0, 0); background-color: rgba(255, 0, 0, 0); flex-direction: column; min-height: 150px; justify-content: center; align-items: center;">
-            <ui:Label text="Nome Do Jogo" name="titulo" style="height: 119px; width: 900px; -unity-text-align: middle-center; justify-content: flex-start; align-items: stretch; align-self: center; align-content: center; font-size: 100px; color: rgb(142, 86, 0);" />
+            <ui:Label text="Nome Do Jogo" name="titulo" style="height: 100%; width: 100%; -unity-text-align: middle-center; justify-content: flex-start; align-items: stretch; align-self: center; align-content: center; font-size: 100px; color: rgb(142, 86, 0);" />
         </ui:VisualElement>
         <ui:VisualElement name="body" style="flex-grow: 1; -unity-background-image-tint-color: rgb(90, 255, 0); background-color: rgba(58, 255, 0, 0); height: 100%; flex-direction: row;">
-            <ui:VisualElement name="meu" style="flex-grow: 1; background-color: rgba(255, 179, 0, 0); min-height: 100px; min-width: 700px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; align-content: flex-start; align-items: stretch; justify-content: center; align-self: auto; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); background-position-x: center 0; flex-direction: column;">
-                <ui:VisualElement name="placa" style="flex-grow: 1; background-color: rgba(96, 96, 96, 0.98); margin-top: 80px; margin-right: 90px; margin-bottom: 0; margin-left: 90px; min-width: 50%; min-height: auto; width: auto; height: auto; justify-content: center; align-items: center;">
+            <ui:VisualElement name="meu" style="flex-grow: 1; background-color: rgb(255, 179, 0); min-height: 100%; min-width: 37%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; align-content: flex-start; align-items: stretch; justify-content: center; align-self: auto; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); background-position-x: center 0; flex-direction: column;">
+                <ui:VisualElement name="placa" style="flex-grow: 1; background-color: rgba(96, 96, 96, 0.98); margin-top: 80px; margin-right: 90px; margin-bottom: 0; margin-left: 90px; min-width: 30%; min-height: 30%; width: auto; height: auto; justify-content: center; align-items: center; flex-shrink: 1; flex-direction: column; flex-wrap: nowrap;">
                     <ui:Button text="Jogar" name="play" class="botao" />
                     <ui:Button text="Configuraçao" name="configuracao" class="botao" />
                     <ui:Button text="Creditos" name="creditos" class="botao" />
-                    <ui:Button text="Exit" name="Exit" class="botao" style="min-width: 150px; min-height: 50px; margin-top: 10px; background-color: rgb(135, 11, 0); font-size: 30px;" />
+                    <ui:Button text="Exit" name="Exit" class="botao" style="min-width: auto; min-height: auto; margin-top: 10px; background-color: rgb(135, 11, 0); font-size: 30px; padding-bottom: 10px; padding-top: 10px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="poste" style="flex-grow: 1; margin-left: 300px; background-color: rgb(111, 111, 111); margin-right: 300px; height: 200px;" />
             </ui:VisualElement>
-            <ui:VisualElement name="image" style="flex-grow: 1; width: 100%; height: 100%; background-color: rgba(0, 29, 255, 0); padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+            <ui:VisualElement name="image" style="flex-grow: 1; width: 100%; height: 100%; background-color: rgba(0, 29, 255, 0.69); padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
