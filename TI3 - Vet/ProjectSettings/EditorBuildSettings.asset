@@ -11,6 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TesteScenario.unity
     guid: 2fb5df67f04f46744b174322b386c3d5
+  - enabled: 1
+    path: Assets/Scenes/TestMechanics.unity
+    guid: d27f7343a5273ff448f7bee8eff8bc51
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: c18c29dc0c2874cceae088686030fb76
+  - enabled: 1
+    path: Assets/Scenes/checklist.unity
+    guid: 76415a31a46ba4552bff16a5a3396253
+  - enabled: 1
+    path: Assets/Scenes/TelaVitoria.unity
+    guid: b3a66519f73e846dfadb4c70df356492
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
