@@ -2,10 +2,14 @@
     <Style src="project://database/Assets/UI/UI%20Toolkit/mybutton.uss?fileID=7433441132597879392&amp;guid=bce9ee704d0fb30468b81a77d805537c&amp;type=3#mybutton" />
     <ui:VisualElement name="conteiner" style="flex-grow: 1; flex-direction: column;">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <ui:VisualElement name="hearder" style="flex-grow: 1; -unity-background-image-tint-color: rgb(255, 0, 0); background-color: rgba(255, 0, 0, 0); flex-direction: column; min-height: 150px; justify-content: center; align-items: center;">
             <ui:Label text="Nome Do Jogo" name="titulo" style="height: 100%; width: 100%; -unity-text-align: middle-center; justify-content: flex-start; align-items: stretch; align-self: center; align-content: center; font-size: 100px; color: rgb(142, 86, 0);" />
 =======
         <ui:VisualElement name="header" style="flex-grow: 1; -unity-background-image-tint-color: rgb(255, 0, 0); background-color: rgba(255, 0, 0, 0); flex-direction: column; min-height: 150px; justify-content: center; align-items: center;">
+=======
+        <ui:VisualElement name="hearder" style="flex-grow: 1; -unity-background-image-tint-color: rgb(255, 0, 0); background-color: rgba(255, 0, 0, 0); flex-direction: column; min-height: 150px; justify-content: center; align-items: center;">
+>>>>>>> parent of fe1d8ae (Update ui.uxml)
             <ui:Label text="Nome Do Jogo" name="titulo" style="height: 119px; width: 900px; -unity-text-align: middle-center; justify-content: flex-start; align-items: stretch; align-self: center; align-content: center; font-size: 100px; color: rgb(142, 86, 0);" />
 >>>>>>> fe1d8aeba949be07c3a39df023648fde7b7cf082
         </ui:VisualElement>
