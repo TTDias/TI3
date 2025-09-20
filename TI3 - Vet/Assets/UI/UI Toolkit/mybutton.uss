@@ -1,0 +1,20 @@
+.botao:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.botao {
+    width: auto;
+    height: auto;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-bottom: 20px;
+    -unity-text-outline-color: rgba(92, 122, 178, 0);
+    -unity-background-image-tint-color: rgb(131, 204, 245);
+    background-color: rgb(133, 180, 200);
+    font-size: 500%;
+    -unity-text-align: middle-center;
+    min-width: 300px;
+    min-height: 115px;
+}
