@@ -30,6 +30,27 @@ public class CatItens : MonoBehaviour
         {
             icon.SetActive(true);
         }
+        else if(other.tag == "Cat" && !broken)
+        {
+            broken = true;
+            icon.GetComponent<TesteClique>().Broke();
+            other.GetComponent<CatPlay>().Sleep();
+        }
+        else if (other.tag == "Cat" && broken)
+        {
+            other.GetComponent<CatPlay>().Call();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Cat" && !broken)
+        {
+            broken = true;
+            icon.GetComponent<TesteClique>().Broke();
+            other.GetComponent<CatPlay>().Cancel();
+            other.GetComponent<CatPlay>().Sleep();
+        }
     }
 
     private void OnTriggerExit(Collider other)

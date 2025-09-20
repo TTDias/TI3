@@ -1,11 +1,12 @@
 using System;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class menu : MonoBehaviour
 {
-    Button config, voutar;
+    Button config, voutar, creditos, jogar;
     VisualElement painelconfig, painelmenu;
 
 
@@ -20,6 +21,10 @@ public class menu : MonoBehaviour
         painelmenu = root.Q<VisualElement>("menu");
         voutar = root.Q<Button>("voltar");
         voutar.clicked += voutarOnclick;
+        creditos = root.Q<Button>("creditos");
+        creditos.clicked += CreditosOnclick;
+        jogar = root.Q<Button>("jogar");
+        jogar.clicked += JogarOnclick;
     }
 
     // Update is called once per frame
@@ -36,5 +41,13 @@ public class menu : MonoBehaviour
     {
         painelmenu.style.display = DisplayStyle.Flex;
         painelconfig.style.display = DisplayStyle.None;
+    }
+    void CreditosOnclick()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
+    void JogarOnclick()
+    {
+        SceneManager.LoadScene("TesteScenario");
     }
 }
