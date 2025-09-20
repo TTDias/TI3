@@ -8,8 +8,8 @@ public class SceneChangeButtons : MonoBehaviour
         SceneManager.LoadScene("menuinicial");
     }
 
-    public void Creditos()
+    public void Checklist()
     {
-        SceneManager.LoadScene("Creditos");
+        SceneManager.LoadScene("checklist");
     }
 }
