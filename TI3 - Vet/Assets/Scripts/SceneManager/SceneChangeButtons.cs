@@ -7,4 +7,9 @@ public class SceneChangeButtons : MonoBehaviour
     {
         SceneManager.LoadScene("menuinicial");
     }
+
+    public void Creditos()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
 }
