@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TesteScenario.unity
     guid: 2fb5df67f04f46744b174322b386c3d5
   - enabled: 1
+    path: Assets/Scenes/TesteScenario Com HUD.unity
+    guid: df03b6a0a850c6b4494b02b957a47084
+  - enabled: 1
     path: Assets/Scenes/TestMechanics.unity
     guid: d27f7343a5273ff448f7bee8eff8bc51
+  - enabled: 1
+    path: Assets/Scenes/TestMechanics com HUD.unity
+    guid: 936dc2041415fad4996d72c151a0c1b9
   - enabled: 1
     path: Assets/Scenes/Creditos.unity
     guid: c18c29dc0c2874cceae088686030fb76

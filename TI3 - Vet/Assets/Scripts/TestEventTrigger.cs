@@ -18,7 +18,13 @@ public class TesteClique : MonoBehaviour, IPointerDownHandler
         mesh.material = repaired;
         item.broken = false;
     }
-    private void OnMouseDown()
+
+    private void OnMouseEnter()
+    {
+        Debug.Log(gameObject.name);
+    }
+
+    void OnMouseDown()
     {
         mesh.material = repaired;
         item.broken = false;
