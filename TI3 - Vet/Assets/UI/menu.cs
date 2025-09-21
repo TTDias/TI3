@@ -48,6 +48,6 @@ public class menu : MonoBehaviour
     }
     void JogarOnclick()
     {
-        SceneManager.LoadScene("TesteScenario");
+        SceneManager.LoadScene("TesteScenario Com HUD");
     }
 }
