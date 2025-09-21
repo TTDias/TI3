@@ -699,7 +699,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2009916491}
         m_TargetAssemblyTypeName: SceneChangeButtons, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_MethodName: Checklist
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -971,7 +971,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Return
+  m_Text: Checklist
 --- !u!222 &1375238700
 CanvasRenderer:
   m_ObjectHideFlags: 0
