@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 public class HUD : MonoBehaviour
 {
     float T = 0;
-    Button pause, config, voltar, menu, fase;
+    Button pause, config, voltar, menu, fase, despausar;
     VisualElement configpause, menupause;
     ProgressBar Timer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,6 +27,8 @@ public class HUD : MonoBehaviour
         menu.clicked += MenuOnclick;
         fase = root.Q<Button>("faseteste");
         fase.clicked += FaseOnclick;
+        despausar = root.Q<Button>("despausar");
+        despausar.clicked += DespausarOnclick;
     }
 
     // Update is called once per frame
@@ -50,6 +52,12 @@ public class HUD : MonoBehaviour
     {
         menupause.style.display = DisplayStyle.Flex;
         configpause.style.display = DisplayStyle.None;
+    }
+    void DespausarOnclick()
+    {
+        menupause.style.display = DisplayStyle.None;
+        configpause.style.display = DisplayStyle.None;
+        Time.timeScale = 1;
     }
     void MenuOnclick()
     {
