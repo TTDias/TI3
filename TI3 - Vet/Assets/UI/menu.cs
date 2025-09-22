@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class menu : MonoBehaviour
 {
-    Button config, voutar, creditos, jogar;
+    Button config, voutar, creditos, jogar, sair;
     VisualElement painelconfig, painelmenu;
 
 
@@ -25,6 +25,8 @@ public class menu : MonoBehaviour
         creditos.clicked += CreditosOnclick;
         jogar = root.Q<Button>("jogar");
         jogar.clicked += JogarOnclick;
+        sair = root.Q<Button>("Exit");
+        sair.clicked += SaitOnclick;
     }
 
     // Update is called once per frame
@@ -49,5 +51,9 @@ public class menu : MonoBehaviour
     void JogarOnclick()
     {
         SceneManager.LoadScene("TesteScenario Com HUD");
+    }
+    void SaitOnclick()
+    {
+        Application.Quit();
     }
 }
