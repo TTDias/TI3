@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CatItens : MonoBehaviour
 {
@@ -6,17 +8,24 @@ public class CatItens : MonoBehaviour
     [SerializeField] Item type;
 
     public bool broken {get;set;}
-    public GameObject icon;
 
+    public MeshRenderer mesh;
+    public Material broked, repaired, highlight;
     void Start()
     {
         broken = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Broke()
     {
-        
+        mesh.material = broked;
+        broken = true;
+    }
+
+    public void Repair()
+    {
+        mesh.material = repaired;
+        broken = false;
     }
 
     public bool IsItemType(Item type)
@@ -28,12 +37,12 @@ public class CatItens : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            icon.SetActive(true);
+            Focus();
         }
         else if(other.tag == "Cat" && !broken)
         {
             broken = true;
-            icon.GetComponent<TesteClique>().Broke();
+            Broke();
             other.GetComponent<CatPlay>().Sleep();
         }
         else if (other.tag == "Cat" && broken)
@@ -47,7 +56,7 @@ public class CatItens : MonoBehaviour
         if (other.tag == "Cat" && !broken)
         {
             broken = true;
-            icon.GetComponent<TesteClique>().Broke();
+            Broke();
             other.GetComponent<CatPlay>().Cancel();
             other.GetComponent<CatPlay>().Sleep();
         }
@@ -57,7 +66,19 @@ public class CatItens : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            icon.SetActive(false);
+            UIRepairScript.Instance.Deselect();
         }
     }
+
+    public void Focus()
+    {
+        UIRepairScript.Instance.Select(this);
+        mesh.material = highlight;
+    }
+
+    public void Unfocus()
+    {
+        mesh.material = broken ? broked : repaired;
+    }
+
 }
