@@ -52,7 +52,7 @@ public class UIRepairScript : MonoBehaviour
             .setOnUpdate((float val) => { loadBar.fillAmount = val; })
             .setOnComplete(() => {
                 reparing = false;
-                LeanTween.delayedCall(gameObject, 1, () => { 
+                LeanTween.delayedCall(gameObject, 0.65f, () => { 
                     loadBar.gameObject.SetActive(false); 
                     btn.interactable = false; 
                 }); 

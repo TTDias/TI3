@@ -14,18 +14,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (UIRepairScript.Instance.reparing == true) return;
 
-        //    bool mouseClick = Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject();
-        //    bool touchClick = Input.touchCount > 0 
-        //                      && (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved) 
-        //                      && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
-
-        //    if(Input.GetMouseButtonUp(0) || Input.touchCount > 0)
-        //    {
-        //        Debug.Log("Mouse na ui: " + EventSystem.current.IsPointerOverGameObject());
-        //        Debug.Log("Touch na ui: " + EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId));
-        //    }
-
-        if (isPressed)
+        if (isPressed && !IsPointerOverUI())
         {
             Ray ray = Camera.main.ScreenPointToRay(position);
             RaycastHit hit;
@@ -50,6 +39,16 @@ public class PlayerMove : MonoBehaviour
         isPressed = context.ReadValue<float>() > 0;
     }
 
+    bool IsPointerOverUI()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        if (Touchscreen.current != null && Touchscreen.current.touches.Count > 0)
+        {
+            return EventSystem.current.IsPointerOverGameObject(Touchscreen.current.touches[0].touchId.ReadValue());
+        }
+#endif
+        return EventSystem.current.IsPointerOverGameObject();
+    }
 
 }
 
