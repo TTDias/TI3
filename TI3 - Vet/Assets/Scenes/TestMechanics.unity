@@ -2399,7 +2399,7 @@ PrefabInstance:
     - target: {fileID: 2193986823620990987, guid: 99dd69753a3870342ac078769c758315, type: 3}
       propertyPath: highlight
       value: 
-      objectReference: {fileID: 2100000, guid: beb3eb9fbbfb4fa43a2de8a1214aa6f3, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3058714640733345959, guid: 99dd69753a3870342ac078769c758315, type: 3}
       propertyPath: item
       value: 
@@ -2496,6 +2496,10 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6726212347025416141, guid: 99dd69753a3870342ac078769c758315, type: 3}
+      propertyPath: highlight
+      value: 
+      objectReference: {fileID: 2100000, guid: beb3eb9fbbfb4fa43a2de8a1214aa6f3, type: 2}
     - target: {fileID: 7127263595534189157, guid: 99dd69753a3870342ac078769c758315, type: 3}
       propertyPath: m_Name
       value: ItemTest
@@ -2601,10 +2605,6 @@ PrefabInstance:
     - target: {fileID: 7517715697697176309, guid: 8a328517538367f499e61e2b7d2e850e, type: 3}
       propertyPath: m_Name
       value: PlayerTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961618208248220629, guid: 8a328517538367f499e61e2b7d2e850e, type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9019409071767450908, guid: 8a328517538367f499e61e2b7d2e850e, type: 3}
       propertyPath: m_Camera
