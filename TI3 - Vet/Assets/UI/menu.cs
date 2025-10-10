@@ -1,32 +1,34 @@
-using System;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class menu : MonoBehaviour
 {
-    Button config, voutar, creditos, jogar, sair;
-    VisualElement painelconfig, painelmenu;
-
-
+    public GameObject[] obj;
+    float t = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UIDocument ui = GetComponent<UIDocument>();
-        var root = ui.rootVisualElement;
-        config = root.Q<Button>("configuracao");
-        config.clicked += ConfigOnclick;
-        painelconfig = root.Q<VisualElement>("config");
-        painelmenu = root.Q<VisualElement>("menu");
-        voutar = root.Q<Button>("voltar");
-        voutar.clicked += voutarOnclick;
-        creditos = root.Q<Button>("creditos");
-        creditos.clicked += CreditosOnclick;
-        jogar = root.Q<Button>("jogar");
-        jogar.clicked += JogarOnclick;
-        sair = root.Q<Button>("Exit");
-        sair.clicked += SaitOnclick;
+        foreach(GameObject G in obj)
+        {
+            G.LeanScale(Vector3.zero, 0f);
+        }
+        LeanTween.init();
+        foreach (GameObject G in obj)
+        {
+            LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setDelay(t);
+            t += 0.5f;
+        }
+        foreach (GameObject G in obj)
+        {
+            LeanTween.scale(G, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setOnComplete(() =>
+            {
+                if (G.name != "menu")
+                {
+                    //t = 0;
+                    LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setLoopPingPong();
+                    //t += 10;
+                }
+            });
+        }
     }
 
     // Update is called once per frame
@@ -34,26 +36,12 @@ public class menu : MonoBehaviour
     {
         
     }
-    void ConfigOnclick()
+    public void botaojogar()
     {
-        painelmenu.style.display = DisplayStyle.None;
-        painelconfig.style.display = DisplayStyle.Flex;
+       
     }
-    void voutarOnclick()
+    public void botaocreditos()
     {
-        painelmenu.style.display = DisplayStyle.Flex;
-        painelconfig.style.display = DisplayStyle.None;
-    }
-    void CreditosOnclick()
-    {
-        SceneManager.LoadScene("Creditos");
-    }
-    void JogarOnclick()
-    {
-        SceneManager.LoadScene("TesteScenario Com HUD");
-    }
-    void SaitOnclick()
-    {
-        Application.Quit();
+
     }
 }
