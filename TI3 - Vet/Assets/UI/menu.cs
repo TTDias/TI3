@@ -3,43 +3,29 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
-    public GameObject[] obj, slaider;
+    public GameObject[] obj, slaider, pause;
     float t = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        foreach(GameObject G in obj)
-        {
-            G.LeanScale(Vector3.zero, 0f);
-        }
-        LeanTween.init();
-        foreach (GameObject G in obj)
-        {
-            LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setDelay(t);
-            t += 0.5f;
-        }
-        foreach (GameObject G in obj)
-        {
-            LeanTween.scale(G, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setOnComplete(() =>
-            {
-                if (G.name != "menu")
-                {
-                    //t = 0;
-                    LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setLoopPingPong();
-                    //t += 10;
-                }
-            });
-        }
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void botaojogar()
     {
-        SceneManager.LoadScene("TestMechanics");
+        if (SceneManager.GetActiveScene().name == "menuinicial")
+        {
+            SceneManager.LoadScene("TesteScenario Com HUD");
+        }
+        else
+        {
+            SceneManager.LoadScene("TestMechanics com HUD");
+        }
     }
     public void botaocreditos()
     {
@@ -70,14 +56,14 @@ public class menu : MonoBehaviour
                     }
                     foreach (GameObject S in slaider)
                     {
-                        LeanTween.scale(S, new Vector3(1f, 1f, 1f), 0.5f).setDelay(t);
+                        LeanTween.scale(S, new Vector3(1f, 1f, 1f), 0.5f).setDelay(t).setIgnoreTimeScale(true);
                         t += 0.2f;
                     }
-                });
-                
+                }).setIgnoreTimeScale(true);
+
             }
         }
-        
+
     }
     public void botaoVoltarMenu()
     {
@@ -86,7 +72,7 @@ public class menu : MonoBehaviour
         t = 0;
         foreach (GameObject S in slaider)
         {
-            LeanTween.scale(S, new Vector3(0f, 0f, 0f), 0.5f).setDelay(t).setOnComplete(() =>
+            LeanTween.scale(S, new Vector3(0f, 0f, 0f), 0.5f).setDelay(t).setIgnoreTimeScale(true).setOnComplete(() =>
             {
                 //Debug.Log(t);
                 foreach (GameObject S in slaider)
@@ -103,22 +89,47 @@ public class menu : MonoBehaviour
                 t = 0;
                 foreach (GameObject G in obj)
                 {
-                    LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setDelay(t);
+                    LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setDelay(t).setIgnoreTimeScale(true);
                     t += 0.5f;
                 }
                 foreach (GameObject G in obj)
                 {
-                    LeanTween.scale(G, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setOnComplete(() =>
+                    LeanTween.scale(G, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setIgnoreTimeScale(true).setOnComplete(() =>
                     {
                         if (G.name != "menu")
                         {
                             //t = 0;
-                            LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setLoopPingPong();
+                            LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setLoopPingPong().setIgnoreTimeScale(true);
                             //t += 10;
                         }
                     });
                 }
-            });
+            }).setIgnoreTimeScale(true);
+        }
+    }
+    public void botaopause()
+    {
+        Time.timeScale = 0;
+        LeanTween.scale(obj[0], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(pause[0], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(pause[1], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
+    }
+    public void botaoDespause()
+    {
+        Time.timeScale = 1;
+        LeanTween.scale(obj[0], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(pause[0], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(pause[1], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
+    }
+    public void botaoSair()
+    {
+        if(SceneManager.GetActiveScene().name == "TesteScenario Com HUD" || SceneManager.GetActiveScene().name == "TestMechanics com HUD")
+        {
+            SceneManager.LoadScene("menuinicial");
+        }
+        else
+        {
+            Application.Quit();
         }
     }
 }
