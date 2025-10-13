@@ -33,7 +33,7 @@ public class UIRepairScript : MonoBehaviour
 
     public void Deselect()
     {
-        if (btn.onClick.GetPersistentEventCount() > 0)
+        //if (btn.onClick.GetPersistentEventCount() > 0)
             btn.onClick.RemoveAllListeners();
         obj.Unfocus();
         btn.interactable = false;

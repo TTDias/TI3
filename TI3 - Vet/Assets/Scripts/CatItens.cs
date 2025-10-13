@@ -9,22 +9,25 @@ public class CatItens : MonoBehaviour
 
     public bool broken {get;set;}
 
-    public MeshRenderer mesh;
-    public Material broked, repaired, highlight;
+    Outline highlight;
+    public GameObject broked, repaired;
     void Start()
     {
+        highlight = GetComponent<Outline>();
         broken = true;
     }
 
     public void Broke()
     {
-        mesh.material = broked;
+        broked.SetActive(true);
+        repaired.SetActive(false);
         broken = true;
     }
 
     public void Repair()
     {
-        mesh.material = repaired;
+        broked.SetActive(false);
+        repaired.SetActive(true);
         broken = false;
     }
 
@@ -35,7 +38,7 @@ public class CatItens : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && broken)
         {
             Focus();
         }
@@ -73,12 +76,14 @@ public class CatItens : MonoBehaviour
     public void Focus()
     {
         UIRepairScript.Instance.Select(this);
-        mesh.material = highlight;
+        highlight.OutlineColor = Color.white;
     }
 
     public void Unfocus()
     {
-        mesh.material = broken ? broked : repaired;
+        highlight.OutlineColor = Color.black;
+        //if (broken) { broked.SetActive(true); repaired.SetActive(false); }
+        //else { broked.SetActive(false); repaired.SetActive(true); }
     }
 
 }
