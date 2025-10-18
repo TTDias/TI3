@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 3033922899741763449}
   m_Layer: 0
   m_Name: CatTest
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,12 +259,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61a21b236f59cd468e73519f52f4a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshAgent: {fileID: 0}
+  meshAgent: {fileID: 4559742634126012049}
   positions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  sleepPoint: {x: -7.27, y: 0, z: -3.19}
+  sleepPoint: {x: 0, y: 0, z: 0}
   exitPoint: {x: 0, y: 0, z: 0}
   sleepTime: 0
 --- !u!114 &3033922899741763449

@@ -20,18 +20,20 @@ public class CatMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (sleepCooldown > 0f)
             sleepCooldown -= Time.deltaTime;
-        if (sleepCooldown <= 0 && running)
-        {
-            running = false;
-            Sleep(0.5f);
-        }
-        else if (sleepCooldown <= 0 && sleeping)
+        if (sleepCooldown <= 0 && sleeping)
         {
             sleeping = false;
             int index = Random.Range(0, positions.Length);
             meshAgent.SetDestination(positions[index].position);
+        }
+
+        if (running && (!meshAgent.pathPending && meshAgent.remainingDistance <= meshAgent.stoppingDistance))
+        {
+            running = false;
+            RunAwayStart();
         }
     }
 
@@ -44,8 +46,14 @@ public class CatMove : MonoBehaviour
 
     public void Runaway()
     {
-        running = true;
         meshAgent.SetDestination(exitPoint);
-        sleepCooldown = sleepTime;
+        running = true;
+    }
+
+    void RunAwayStart()
+    {
+        Debug.Log("check");
+        GetComponent<Animation>().Play("CatWindowJump");
+        LeanTween.delayedCall(sleepTime - 1, () => { GetComponent<Animation>().Play("CatWindowBack"); Sleep(0.7f); });
     }
 }
