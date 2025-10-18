@@ -1,53 +1,135 @@
-using System;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class menu : MonoBehaviour
 {
-    Button config, voutar, creditos, jogar;
-    VisualElement painelconfig, painelmenu;
-
-
+    public GameObject[] obj, slaider, pause;
+    float t = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UIDocument ui = GetComponent<UIDocument>();
-        var root = ui.rootVisualElement;
-        config = root.Q<Button>("configuracao");
-        config.clicked += ConfigOnclick;
-        painelconfig = root.Q<VisualElement>("config");
-        painelmenu = root.Q<VisualElement>("menu");
-        voutar = root.Q<Button>("voltar");
-        voutar.clicked += voutarOnclick;
-        creditos = root.Q<Button>("creditos");
-        creditos.clicked += CreditosOnclick;
-        jogar = root.Q<Button>("jogar");
-        jogar.clicked += JogarOnclick;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    void ConfigOnclick()
+    public void botaojogar()
     {
-        painelmenu.style.display = DisplayStyle.None;
-        painelconfig.style.display = DisplayStyle.Flex;
+        if (SceneManager.GetActiveScene().name == "menuinicial")
+        {
+            SceneManager.LoadScene("TesteScenario Com HUD");
+        }
+        else
+        {
+            SceneManager.LoadScene("TestMechanics com HUD");
+        }
     }
-    void voutarOnclick()
-    {
-        painelmenu.style.display = DisplayStyle.Flex;
-        painelconfig.style.display = DisplayStyle.None;
-    }
-    void CreditosOnclick()
+    public void botaocreditos()
     {
         SceneManager.LoadScene("Creditos");
     }
-    void JogarOnclick()
+    public void botaoOpçoes()
     {
-        SceneManager.LoadScene("TesteScenario Com HUD");
+        LeanTween.cancelAll();
+        LeanTween.init();
+        t = 0;
+        foreach (GameObject G in obj)
+        {
+            if (G.name != "menu")
+            {
+                LeanTween.scale(G, new Vector3(0f, 0f, 0f), 0.5f).setDelay(t).setOnComplete(() =>
+                {
+                    t = 0;
+                    foreach (GameObject g in obj)
+                    {
+                        if (g.name != "menu")
+                        {
+                            g.SetActive(false);
+                        }
+                    }
+                    foreach (GameObject S in slaider)
+                    {
+                        S.gameObject.SetActive(true);
+                    }
+                    foreach (GameObject S in slaider)
+                    {
+                        LeanTween.scale(S, new Vector3(1f, 1f, 1f), 0.5f).setDelay(t).setIgnoreTimeScale(true);
+                        t += 0.2f;
+                    }
+                }).setIgnoreTimeScale(true);
+
+            }
+        }
+
+    }
+    public void botaoVoltarMenu()
+    {
+        LeanTween.cancelAll();
+        LeanTween.init();
+        t = 0;
+        foreach (GameObject S in slaider)
+        {
+            LeanTween.scale(S, new Vector3(0f, 0f, 0f), 0.5f).setDelay(t).setIgnoreTimeScale(true).setOnComplete(() =>
+            {
+                //Debug.Log(t);
+                foreach (GameObject S in slaider)
+                {
+                    S.gameObject.SetActive(false);
+                }
+                foreach (GameObject g in obj)
+                {
+                    if (g.name != "menu")
+                    {
+                        g.SetActive(true);
+                    }
+                }
+                t = 0;
+                foreach (GameObject G in obj)
+                {
+                    LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setDelay(t).setIgnoreTimeScale(true);
+                    t += 0.5f;
+                }
+                foreach (GameObject G in obj)
+                {
+                    LeanTween.scale(G, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setIgnoreTimeScale(true).setOnComplete(() =>
+                    {
+                        if (G.name != "menu")
+                        {
+                            //t = 0;
+                            LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setLoopPingPong().setIgnoreTimeScale(true);
+                            //t += 10;
+                        }
+                    });
+                }
+            }).setIgnoreTimeScale(true);
+        }
+    }
+    public void botaopause()
+    {
+        Time.timeScale = 0;
+        LeanTween.scale(obj[0], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(pause[0], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(pause[1], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
+    }
+    public void botaoDespause()
+    {
+        Time.timeScale = 1;
+        LeanTween.scale(obj[0], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(pause[0], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(pause[1], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
+    }
+    public void botaoSair()
+    {
+        if(SceneManager.GetActiveScene().name == "TesteScenario Com HUD" || SceneManager.GetActiveScene().name == "TestMechanics com HUD")
+        {
+            SceneManager.LoadScene("menuinicial");
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
 }
