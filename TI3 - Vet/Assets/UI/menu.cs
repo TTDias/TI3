@@ -9,6 +9,27 @@ public class menu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        if (SceneManager.GetActiveScene().name == "menuinicial")
+        {
+            t = 0;
+            LeanTween.init();
+            foreach (GameObject go in obj) 
+            {
+                LeanTween.scale(go, Vector3.zero, 0);
+            }
+            foreach (GameObject go in obj)
+            {
+                t += 0.5f;
+                LeanTween.scale(go, new Vector3(1f, 1f, 1f), 0.5f).setDelay(t).setOnComplete(() =>
+                {
+                    if (go.name != "menu")
+                    {
+                        LeanTween.scale(go, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setLoopPingPong();
+                    }
+                });
+                
+            }
+        }
     }
 
     // Update is called once per frame
@@ -110,7 +131,17 @@ public class menu : MonoBehaviour
     public void botaopause()
     {
         Time.timeScale = 0;
-        LeanTween.scale(obj[0], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(obj[0], new Vector3(1, 1, 1), 0.5f).setOnComplete(() =>
+        {
+            foreach (GameObject go in obj)
+            {
+                if (go.name != "menu")
+                {
+                    LeanTween.scale(go, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setIgnoreTimeScale(true).setLoopPingPong();
+                }
+
+            }
+        }).setIgnoreTimeScale(true);
         LeanTween.scale(pause[0], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
         LeanTween.scale(pause[1], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
     }
