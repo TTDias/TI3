@@ -4,8 +4,8 @@ public class CatPlay : MonoBehaviour
 {
 
     public float waitTime;
-    float cooldown;
-    bool waiting;
+    public float cooldown;
+    public bool waiting;
 
     // Update is called once per frame
     void Update()

@@ -9,6 +9,8 @@ public class CatItens : MonoBehaviour
 
     public bool broken {get;set;}
 
+    bool trigger = true;
+
     Outline highlight;
     public GameObject broked, repaired;
     void Start()
@@ -19,9 +21,8 @@ public class CatItens : MonoBehaviour
 
     public void Broke()
     {
-        broked.SetActive(true);
-        repaired.SetActive(false);
-        broken = true;
+        LeanTween.delayedCall(1.5f, () => { broked.SetActive(true); repaired.SetActive(false); broken = true; });
+       
     }
 
     public void Repair()
@@ -44,9 +45,9 @@ public class CatItens : MonoBehaviour
         }
         else if(other.tag == "Cat" && !broken)
         {
-            broken = true;
+            other.GetComponent<Animation>().Play("CatItemUse");
             Broke();
-            other.GetComponent<CatPlay>().Sleep();
+            LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
         }
         else if (other.tag == "Cat" && broken)
         {
@@ -56,12 +57,15 @@ public class CatItens : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Cat" && !broken)
+        if (other.tag == "Cat" && !broken && UIRepairScript.Instance.reparing && trigger)
         {
-            broken = true;
-            Broke();
+            trigger = false;
             other.GetComponent<CatPlay>().Cancel();
-            other.GetComponent<CatPlay>().Sleep();
+            LeanTween.delayedCall(3f, () => {
+                trigger = true; Broke(); other.GetComponent<Animation>().Play("CatItemUse");
+                LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+            });
+            
         }
     }
 
