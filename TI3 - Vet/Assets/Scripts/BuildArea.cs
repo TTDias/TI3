@@ -5,15 +5,17 @@ public class BuildArea : MonoBehaviour
     public GameObject area;
     public GameObject obj;
 
+    public GameObject boxConstruct;
+
     private void OnEnable()
     {
         PlayerPickup.PickupBox += AreaHighlight;
-        PlayerPickup.PlaceBox += AreaDesable;
+        PlayerPickup.PlaceBox += AreaDisable;
     }
     private void OnDisable()
     {
         PlayerPickup.PickupBox -= AreaHighlight;
-        PlayerPickup.PlaceBox -= AreaDesable;
+        PlayerPickup.PlaceBox -= AreaDisable;
     }
 
     void Start()
@@ -27,16 +29,39 @@ public class BuildArea : MonoBehaviour
         area.SetActive(true);
     }
 
-    void AreaDesable()
+    void AreaDisable()
     {
         area.SetActive(false);
     }
 
-    public void Build()
+    public void BuildStart(GameObject box)
+    {
+        box.transform.parent = transform;
+        box.transform.localPosition = Vector3.zero;
+        box.tag = "Untagged";
+        boxConstruct = box;
+        BuildAnim();
+    }
+
+    public void BuildStop()
+    {
+        LeanTween.init();
+        LeanTween.cancel(boxConstruct);
+    }
+
+    public void BuildAnim()
+    {
+        LeanTween.init();
+        LeanTween.scale(boxConstruct, Vector3.one * 100, 0);
+        LeanTween.scale(boxConstruct, Vector3.one * 70f, 0.3f).setLoopPingPong(6).setOnComplete(Build);
+    }
+
+    void Build()
     {
         obj.SetActive(true);
         area.SetActive(false);
+        Destroy(boxConstruct);
         PlayerPickup.PickupBox -= AreaHighlight;
-        PlayerPickup.PickupBox -= AreaHighlight;
+        GameManager.Manager.BoxPlacementScoreUp();
     }
 }

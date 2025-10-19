@@ -20,11 +20,11 @@ public class menu : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "menuinicial")
         {
-            SceneManager.LoadScene("TesteScenario Com HUD");
+            SceneManager.LoadScene("SampleScene");
         }
         else
         {
-            SceneManager.LoadScene("TestMechanics com HUD");
+            botaoDespause();
         }
     }
     public void botaocreditos()

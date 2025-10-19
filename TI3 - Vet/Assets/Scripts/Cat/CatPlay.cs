@@ -36,6 +36,7 @@ public class CatPlay : MonoBehaviour
 
     void Runaway()
     {
+        GameManager.Manager.RunawayScoreDown();
         GetComponent<CatMove>().Runaway();
     }
 }

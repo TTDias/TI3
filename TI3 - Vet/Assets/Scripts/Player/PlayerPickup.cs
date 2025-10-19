@@ -18,12 +18,41 @@ public class PlayerPickup : MonoBehaviour
             carrying = true;
             PickupBox?.Invoke();
         }
-        if (obj.tag == "BoxArea" && carrying)
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "BoxArea" )
         {
-            carrying = false;
-            Destroy(pickup.GetChild(0).gameObject);
-            obj.GetComponent<BuildArea>().Build();
-            PlaceBox?.Invoke();
+            BuildArea area = other.GetComponent<BuildArea>();
+            if (carrying && !area.obj.activeSelf && area.boxConstruct == null)
+            {
+                carrying = false;
+                area.BuildStart(pickup.GetChild(0).gameObject);
+            }
+            else if (area.boxConstruct != null)
+            {
+                area.BuildAnim();
+            }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "BoxArea")
+        {
+            BuildArea area = other.GetComponent<BuildArea>();
+            if (area.boxConstruct != null)
+            {
+                area.BuildStop();
+            }
+        }
+    }
+
+    public static void DisableActions()
+    {
+        PickupBox = null;
+        PlaceBox = null;
     }
 }

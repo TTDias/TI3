@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public float score = 0, starScore1 = 500, starScore2, starScore3;
-    public float timer = 3 * 60;
+    public float timer = 2 * 60;
     public static GameManager Manager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     void GameEnd()
     {
-
+        if(score < starScore1) SceneManager.LoadScene("TelaDerrota");
+        else SceneManager.LoadScene("TelaVitoria");
     }
 }

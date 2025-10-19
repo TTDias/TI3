@@ -45,9 +45,19 @@ public class CatItens : MonoBehaviour
         }
         else if(other.tag == "Cat" && !broken)
         {
-            other.GetComponent<Animation>().Play("CatItemUse");
-            Broke();
-            LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+            if (UIRepairScript.Instance.reparing)
+            {
+                LeanTween.delayedCall(3f, () => {
+                    Broke(); other.GetComponent<Animation>().Play("CatItemUse");
+                    LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+                });
+            }
+            else
+            {
+                other.GetComponent<Animation>().Play("CatItemUse");
+                Broke();
+                LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+            }
         }
         else if (other.tag == "Cat" && broken)
         {

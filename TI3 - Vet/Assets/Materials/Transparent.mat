@@ -12,7 +12,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: f85ae3cf2bf6dc24dac9950373477073, type: 2}
   m_ModifiedSerializedProperties: 18
   m_ValidKeywords:
-  - _ALPHAMODULATE_ON
+  - _ALPHAPREMULTIPLY_ON
   - _EMISSION
   - _RECEIVE_SHADOWS_OFF
   - _SURFACE_TYPE_TRANSPARENT
@@ -33,16 +33,17 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Blend: 3
-    - _DstBlendAlpha: 1
+    - _Blend: 0
+    - _DstBlend: 10
+    - _DstBlendAlpha: 10
     - _ReceiveShadows: 0
-    - _SrcBlend: 2
-    - _SrcBlendAlpha: 0
+    - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
     - _Surface: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.6094339, g: 0.9331173, b: 1, a: 1}
-    - _Color: {r: 0.6094338, g: 0.9331173, b: 1, a: 1}
+    - _BaseColor: {r: 0.6094338, g: 0.9331173, b: 1, a: 0.09803922}
+    - _Color: {r: 0.6094338, g: 0.9331173, b: 1, a: 0.09803922}
     - _EmissionColor: {r: 0.33746523, g: 0.97735846, b: 0.87013835, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

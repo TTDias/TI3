@@ -52,7 +52,6 @@ public class CatMove : MonoBehaviour
 
     void RunAwayStart()
     {
-        Debug.Log("check");
         GetComponent<Animation>().Play("CatWindowJump");
         LeanTween.delayedCall(sleepTime - 1, () => { GetComponent<Animation>().Play("CatWindowBack"); Sleep(0.7f); });
     }
