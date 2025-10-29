@@ -154,7 +154,7 @@ public class menu : MonoBehaviour
     }
     public void botaoSair()
     {
-        if(SceneManager.GetActiveScene().name == "TesteScenario Com HUD" || SceneManager.GetActiveScene().name == "TestMechanics com HUD")
+        if(SceneManager.GetActiveScene().name == "TesteScenario Com HUD" || SceneManager.GetActiveScene().name == "TelaDerrota" || SceneManager.GetActiveScene().name == "TestMechanics com HUD")
         {
             SceneManager.LoadScene("menuinicial");
         }
@@ -162,5 +162,10 @@ public class menu : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void botaovoutarmenooutros()
+    {
+
     }
 }
