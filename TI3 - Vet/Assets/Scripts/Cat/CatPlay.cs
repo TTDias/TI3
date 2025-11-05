@@ -6,6 +6,7 @@ public class CatPlay : MonoBehaviour
     public float waitTime;
     public float cooldown;
     public bool waiting;
+    public menu menu;
 
     // Update is called once per frame
     void Update()
@@ -36,6 +37,10 @@ public class CatPlay : MonoBehaviour
 
     void Runaway()
     {
+        if(menu.dicas.transform.lossyScale.y == 0)
+        {
+            menu.MostrarDica();
+        }
         GameManager.Manager.RunawayScoreDown();
         GetComponent<CatMove>().Runaway();
     }
