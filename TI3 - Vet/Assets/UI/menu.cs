@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
-    public GameObject dicas;
+    public GameObject dicas, sairPopup;
     public GameObject[] obj, slaider, pause;
     float t = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,7 +25,7 @@ public class menu : MonoBehaviour
                 {
                     if (go.name != "menu")
                     {
-                        LeanTween.scale(go, new Vector3(1.1f, 1.1f, 1.1f), 0.4f).setLoopPingPong();
+                        LeanTween.scale(go, new Vector3(1.05f, 1.05f, 1.05f), 0.4f).setLoopPingPong();
                     }
                 });
                 
