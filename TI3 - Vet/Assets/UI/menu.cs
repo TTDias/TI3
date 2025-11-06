@@ -167,11 +167,11 @@ public class menu : MonoBehaviour
 
     public void MostrarDica(string msg = null)
     {
-        LeanTween.alpha(dicas, 0, 0.0f);
         if (msg == null)
         {
             LeanTween.scaleY(dicas, 1.74f, 0.5f);
-            //LeanTween.alpha(dicas, 1, 0.3f);
+            LeanTween.delayedCall(7f, () => { LeanTween.scaleY(dicas, 0, 0.5f); });
+            
         }
     }
     public void botaovoutarmenooutros()
