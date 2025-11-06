@@ -53,7 +53,7 @@ public class menu : MonoBehaviour
     {
         SceneManager.LoadScene("Creditos");
     }
-    public void botaoOp�oes()
+    public void botaoOpcoes()
     {
         LeanTween.cancelAll();
         LeanTween.init();
@@ -173,6 +173,7 @@ public class menu : MonoBehaviour
             LeanTween.scaleY(dicas, 1.74f, 0.5f);
             //LeanTween.alpha(dicas, 1, 0.3f);
         }
+    }
     public void botaovoutarmenooutros()
     {
 
