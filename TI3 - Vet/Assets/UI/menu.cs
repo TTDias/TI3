@@ -43,6 +43,7 @@ public class menu : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "menuinicial")
         {
             SceneManager.LoadScene("SampleScene");
+            GameManager.GameStart();
         }
         else
         {

@@ -55,7 +55,7 @@ public class UIRepairScript : MonoBehaviour
                 LeanTween.delayedCall(gameObject, 0.65f, () => { 
                     loadBar.gameObject.SetActive(false); 
                     btn.interactable = false;
-                    GameManager.Manager.RepairScoreUp();
+                    GameManager.RepairScoreUp();
                 }); 
             });
     }

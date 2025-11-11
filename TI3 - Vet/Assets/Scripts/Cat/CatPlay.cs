@@ -41,7 +41,7 @@ public class CatPlay : MonoBehaviour
         {
             menu.MostrarDica();
         }
-        GameManager.Manager.RunawayScoreDown();
+        GameManager.RunawayScoreDown();
         GetComponent<CatMove>().Runaway();
     }
 }

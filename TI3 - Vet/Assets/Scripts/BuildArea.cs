@@ -62,6 +62,6 @@ public class BuildArea : MonoBehaviour
         area.SetActive(false);
         Destroy(boxConstruct);
         PlayerPickup.PickupBox -= AreaHighlight;
-        GameManager.Manager.BoxPlacementScoreUp();
+        GameManager.BoxPlacementScoreUp();
     }
 }

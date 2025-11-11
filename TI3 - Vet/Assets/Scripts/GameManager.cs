@@ -1,15 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager:MonoBehaviour
 {
-    public float score = 0, starScore1 = 500, starScore2, starScore3;
-    public float timer = 2 * 60;
-    public static GameManager Manager;
+    static public float score;
+    static public float timer;
+    public static float starScore1 = 500, starScore2 = 800, starScore3 = 1000;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    static public void GameStart()
     {
-        Manager = this;
+        score = 0;
+        timer = 2 * 60;
     }
 
     // Update is called once per frame
@@ -19,32 +20,32 @@ public class GameManager : MonoBehaviour
         else timer -= Time.deltaTime;
     }
 
-    public void RepairScoreUp()
+    static public void RepairScoreUp()
     {
         score += 100;
     }
 
-    public void RunawayScoreDown()
+    static public void RunawayScoreDown()
     {
         score -= 150;
     }
 
-    public void VetCallScoreUp()
+    static public void VetCallScoreUp()
     {
         score += 100;
     }
 
-    public void BoxPlacementScoreUp()
+    static public void BoxPlacementScoreUp()
     {
         score += 50;
     }
 
-    public void BoxPlacementScoreDown()
+    static public void BoxPlacementScoreDown()
     {
         score -= 50;
     }
 
-    void GameEnd()
+    static void GameEnd()
     {
         if(score < starScore1) SceneManager.LoadScene("TelaDerrota");
         else SceneManager.LoadScene("TelaVitoria");
