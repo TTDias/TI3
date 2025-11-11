@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager:MonoBehaviour
 {
-    static public float score;
-    static public float timer;
+    static public float score = 0;
+    static public float timer = 2 * 60;
     public static float starScore1 = 500, starScore2 = 800, starScore3 = 1000;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     static public void GameStart()

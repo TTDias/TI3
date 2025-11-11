@@ -1787,10 +1787,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 140550020}
   m_HandleRect: {fileID: 1486196774}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2769,10 +2769,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 439820577}
   m_HandleRect: {fileID: 1949208677}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5041,10 +5041,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1125789506}
   m_HandleRect: {fileID: 1690362424}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5629,6 +5629,7 @@ GameObject:
   - component: {fileID: 3957135949170542432}
   - component: {fileID: 2706033634060148513}
   - component: {fileID: 7379681974390530670}
+  - component: {fileID: 7379681974390530671}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5972,6 +5973,22 @@ MonoBehaviour:
   - {fileID: 1819129283}
   - {fileID: 628407897}
   pause: []
+--- !u!114 &7379681974390530671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429414569000992967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb7eb3f66446e540807cf978e792690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 502606410}
+  music: {fileID: 936625715}
+  sfx: {fileID: 1819129285}
+  mixer: {fileID: 24100000, guid: de14153e8dec5444abc722475b724982, type: 2}
 --- !u!1 &7542862397133492452
 GameObject:
   m_ObjectHideFlags: 0
