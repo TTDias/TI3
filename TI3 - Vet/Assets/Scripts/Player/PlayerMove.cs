@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
     public NavMeshAgent agent;
     bool isPressed;
     Vector2 position;
-
+    public Animator anima;
     void Update()
     {
         if (UIRepairScript.Instance.reparing == true) return;
@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(position);
             RaycastHit hit;
+            anima.SetFloat("Blend", 0);
             if (Physics.Raycast(ray, out hit))
             {
                 agent.SetDestination(hit.point);
@@ -26,6 +27,7 @@ public class PlayerMove : MonoBehaviour
         else if (agent.hasPath)
         {
             agent.ResetPath();
+            anima.SetFloat("Blend", 1);
         }
     }
 
