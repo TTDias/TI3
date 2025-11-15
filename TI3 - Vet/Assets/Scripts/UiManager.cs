@@ -6,8 +6,18 @@ public class UiManager : MonoBehaviour
     public Slider levelTime, catTolerance, stars;
     public CatPlay cat;
     public Transform pointer;
+
+    ColorBlock colors;
+    Color red;
     void Start()
     {
+        colors = stars.colors;
+        red = colors.disabledColor;
+        Debug.Log(colors.disabledColor);
+
+        colors.disabledColor = Color.white;
+        stars.colors = colors;
+
         stars.value = 0;
         stars.maxValue = GameManager.starScore3;
         levelTime.maxValue = GameManager.timer;
@@ -20,9 +30,25 @@ public class UiManager : MonoBehaviour
     void Update()
     {
         levelTime.value = levelTime.maxValue - GameManager.timer;
-        if(GameManager.score < GameManager.starScore1) stars.value = GameManager.score/3;
-        else if(GameManager.score < GameManager.starScore2) stars.value = GameManager.score*2/3;
-        else stars.value = GameManager.score;
+        if (GameManager.score < 0)
+        {
+            if (colors.disabledColor != red)
+            {
+                colors.disabledColor = red;
+                Debug.Log(colors.disabledColor);
+            }
+        }
+        else if (colors.disabledColor != Color.white)
+            colors.disabledColor = Color.white;
+        stars.colors = colors;
+
+
+        if (GameManager.score < GameManager.starScore1)
+            stars.value = Mathf.Abs(GameManager.score / 3);
+        else if (GameManager.score < GameManager.starScore2) 
+            stars.value = GameManager.score * 2 / 3;
+        else 
+            stars.value = GameManager.score;
 
 
         float rotation = -levelTime.value * 360/ levelTime.maxValue;

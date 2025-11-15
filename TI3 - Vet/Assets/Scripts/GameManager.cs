@@ -22,7 +22,7 @@ public class GameManager:MonoBehaviour
 
     static public void RepairScoreUp()
     {
-        score += 100;
+        score += 75;
     }
 
     static public void RunawayScoreDown()
@@ -30,19 +30,25 @@ public class GameManager:MonoBehaviour
         score -= 150;
     }
 
-    static public void VetCallScoreUp()
+    static public void FightPenality()
     {
-        score += 100;
+        score -= 500;
+
+    }
+
+    static public void VetCall()
+    {
+        score += 300;
     }
 
     static public void BoxPlacementScoreUp()
     {
-        score += 50;
+        score += 150;
     }
 
     static public void BoxPlacementScoreDown()
     {
-        score -= 50;
+        score -= 150;
     }
 
     static void GameEnd()

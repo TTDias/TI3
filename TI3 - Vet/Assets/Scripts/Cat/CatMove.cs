@@ -11,6 +11,8 @@ public class CatMove : MonoBehaviour
     public float sleepTime;
     float sleepCooldown;
     bool sleeping, running;
+
+    GameObject trackingItem;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +30,7 @@ public class CatMove : MonoBehaviour
             sleeping = false;
             int index = Random.Range(0, positions.Length);
             meshAgent.SetDestination(positions[index].position);
+            trackingItem = positions[index].gameObject;
         }
 
         if (running && (!meshAgent.pathPending && meshAgent.remainingDistance <= meshAgent.stoppingDistance))
@@ -46,6 +49,7 @@ public class CatMove : MonoBehaviour
 
     public void Runaway()
     {
+        AnalyticsTest.Instance.AddAnalytics("Cat", "Runaway Item", trackingItem.name);
         meshAgent.SetDestination(exitPoint);
         running = true;
     }

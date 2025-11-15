@@ -13,10 +13,13 @@ public class CatItens : MonoBehaviour
 
     Outline highlight;
     public GameObject broked, repaired;
+
+    static int repairSum;
     void Start()
     {
         highlight = GetComponent<Outline>();
         broken = true;
+        repairSum = 0;
     }
 
     public void Broke()
@@ -30,6 +33,9 @@ public class CatItens : MonoBehaviour
         broked.SetActive(false);
         repaired.SetActive(true);
         broken = false;
+
+        repairSum++;
+        AnalyticsTest.Instance.AddAnalytics("Cat Item: " + type.ToString(), "Repairs", repairSum.ToString());
     }
 
     public bool IsItemType(Item type)

@@ -8,6 +8,10 @@ public class CatPlay : MonoBehaviour
     public bool waiting;
     public menu menu;
 
+
+    float fightProb = 0;
+
+    int runaway = 0;
     // Update is called once per frame
     void Update()
     {
@@ -37,11 +41,22 @@ public class CatPlay : MonoBehaviour
 
     void Runaway()
     {
+        runaway ++;
+        AnalyticsTest.Instance.AddAnalytics("Cat", "Runaway", runaway.ToString());
         if(menu.dicas.transform.lossyScale.y == 0)
         {
             menu.MostrarDica();
         }
-        GameManager.RunawayScoreDown();
-        GetComponent<CatMove>().Runaway();
+        if (fightProb >= Random.Range(0, 1))
+        {
+            GameManager.RunawayScoreDown();
+            fightProb += 0.3f;
+        }
+        else
+        {
+            GameManager.FightPenality();
+            fightProb = 0;
+        }
+            GetComponent<CatMove>().Runaway();
     }
 }
