@@ -6,6 +6,8 @@ public class GameManager:MonoBehaviour
     static public float score = 0;
     static public float timer = 2 * 60;
     public static float starScore1 = 500, starScore2 = 800, starScore3 = 1000;
+    
+    static int loses = 0, victories = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     static public void GameStart()
     {
@@ -53,7 +55,19 @@ public class GameManager:MonoBehaviour
 
     static void GameEnd()
     {
-        if(score < starScore1) SceneManager.LoadScene("TelaDerrota");
-        else SceneManager.LoadScene("TelaVitoria");
+        if (score < starScore1)
+        {
+            loses++;
+            AnalyticsTest.Instance.AddAnalytics("Game", "Loses", loses.ToString());
+            AnalyticsTest.Instance.Save();
+            SceneManager.LoadScene("TelaDerrota");
+        }
+        else 
+        {
+            victories++;
+            AnalyticsTest.Instance.AddAnalytics("Game", "Victories", victories.ToString());
+            AnalyticsTest.Instance.Save();
+            SceneManager.LoadScene("TelaVitoria");
+        } 
     }
 }

@@ -16,10 +16,10 @@ public class AnalyticsTest : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S)) 
-        {
-            Save();
-        }
+        //if (Input.GetKeyDown(KeyCode.S)) 
+        //{
+        //    Save();
+        //}
     }
 
     public void AddAnalytics(string sender, string track, string value)
@@ -52,7 +52,7 @@ public class AnalyticsTest : MonoBehaviour
             Credentials = new NetworkCredential("tuliodiasa@gmail.com", "secd cpzp pnvp askz"),
             EnableSsl = true
         };
-        client.Send("AnalyticsPDJ3@gmail.com", "taltissimo@gmail.com", "Dados do Analytics", text);
+        client.Send("AnalyticsPDJ3@gmail.com", "tuliodiasa@hotmail.com", "Dados do Analytics", text);
         Debug.Log("Email enviado");
     }
 }
