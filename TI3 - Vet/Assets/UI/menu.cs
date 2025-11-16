@@ -6,6 +6,8 @@ public class menu : MonoBehaviour
     public GameObject dicas, sairPopup;
     public GameObject[] obj, slaider, pause;
     float t = 0;
+
+    static int plays = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,6 +44,8 @@ public class menu : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "menuinicial")
         {
+            plays++;
+            AnalyticsTest.Instance.AddAnalytics("Game", "Plays", plays.ToString());
             SceneManager.LoadScene("SampleScene");
             GameManager.GameStart();
         }

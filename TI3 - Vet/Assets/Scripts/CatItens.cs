@@ -34,7 +34,7 @@ public class CatItens : InteractiveItem
         broken = false;
 
         repairSum++;
-        AnalyticsTest.Instance.AddAnalytics("Cat Item: " + type.ToString(), "Repairs", repairSum.ToString());
+        AnalyticsTest.Instance.AddAnalytics(type.ToString(), "Repaired Itens", repairSum.ToString());
     }
 
     public bool IsItemType(Item type)

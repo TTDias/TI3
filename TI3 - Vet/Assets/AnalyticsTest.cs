@@ -10,7 +10,8 @@ public class AnalyticsTest : MonoBehaviour
     public static AnalyticsTest Instance { get; private set; }
     void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+            Instance = this;
         data = new List<AnalyticsData>();
     }
 

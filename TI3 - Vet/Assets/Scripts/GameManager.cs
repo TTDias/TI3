@@ -59,14 +59,12 @@ public class GameManager:MonoBehaviour
         {
             loses++;
             AnalyticsTest.Instance.AddAnalytics("Game", "Loses", loses.ToString());
-            AnalyticsTest.Instance.Save();
             SceneManager.LoadScene("TelaDerrota");
         }
         else 
         {
             victories++;
             AnalyticsTest.Instance.AddAnalytics("Game", "Victories", victories.ToString());
-            AnalyticsTest.Instance.Save();
             SceneManager.LoadScene("TelaVitoria");
         } 
     }

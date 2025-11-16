@@ -32,7 +32,7 @@ public class AnalyticsFile
  * Quantas caixas posicionou
  * Quantos itens consertou
  * Número de plays
- * Número de cliques
+ * Vitorias e derrotas
  * Pontuação final
  * 
  */
