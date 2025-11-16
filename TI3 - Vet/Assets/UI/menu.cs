@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
     public GameObject dicas, sairPopup;
+    public Image imageF;
     public GameObject[] obj, slaider, pause;
     float t = 0;
 
@@ -136,6 +138,7 @@ public class menu : MonoBehaviour
     }
     public void botaopause()
     {
+        imageF.enabled = true;
         Time.timeScale = 0;
         LeanTween.scale(obj[0], new Vector3(1, 1, 1), 0.5f).setOnComplete(() =>
         {
@@ -154,6 +157,7 @@ public class menu : MonoBehaviour
     public void botaoDespause()
     {
         Time.timeScale = 1;
+        imageF.enabled = false;
         LeanTween.scale(obj[0], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
         LeanTween.scale(pause[0], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
         LeanTween.scale(pause[1], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
