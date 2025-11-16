@@ -12,6 +12,8 @@ public class CatPlay : MonoBehaviour
     float fightProb = 0;
 
     int runaway = 0;
+
+    public bool catHurted = false;
     // Update is called once per frame
     void Update()
     {
@@ -47,13 +49,14 @@ public class CatPlay : MonoBehaviour
         {
             menu.MostrarDica();
         }
-        if (fightProb >= Random.Range(0, 1))
+        if (fightProb <= Random.value)
         {
             GameManager.RunawayScoreDown();
-            fightProb += 0.3f;
+            fightProb += 0.5f;
         }
         else
         {
+            catHurted = true;
             GameManager.FightPenality();
             fightProb = 0;
         }

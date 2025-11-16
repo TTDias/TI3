@@ -6,7 +6,7 @@ public class UIRepairScript : MonoBehaviour
     public static UIRepairScript Instance;
     public Button btn;
     public Image loadBar;
-    CatItens obj;
+    InteractiveItem obj;
     public bool reparing = false;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class UIRepairScript : MonoBehaviour
         btn.interactable = false;
     }
 
-    public void Select(CatItens item)
+    public void Select(InteractiveItem item)
     {
         if(obj != null)
         {
@@ -27,14 +27,13 @@ public class UIRepairScript : MonoBehaviour
         }
         btn.interactable = true;
         obj = item;
-        btn.onClick.AddListener(obj.Repair);
+        btn.onClick.AddListener(obj.Use);
         btn.onClick.AddListener( ButtonLoad );
     }
 
     public void Deselect()
     {
-        //if (btn.onClick.GetPersistentEventCount() > 0)
-            btn.onClick.RemoveAllListeners();
+        btn.onClick.RemoveAllListeners();
         obj.Unfocus();
         btn.interactable = false;
     }

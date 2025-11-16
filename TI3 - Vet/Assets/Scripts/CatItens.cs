@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CatItens : MonoBehaviour
+public class CatItens : InteractiveItem
 {
     public enum Item { food, post, toy, litterbox }
     [SerializeField] Item type;
@@ -11,15 +11,14 @@ public class CatItens : MonoBehaviour
 
     bool trigger = true;
 
-    Outline highlight;
     public GameObject broked, repaired;
 
     static int repairSum;
     void Start()
     {
-        highlight = GetComponent<Outline>();
         broken = true;
         repairSum = 0;
+        highlight = GetComponent<Outline>();
     }
 
     public void Broke()
@@ -28,7 +27,7 @@ public class CatItens : MonoBehaviour
        
     }
 
-    public void Repair()
+    public override void Use()
     {
         broked.SetActive(false);
         repaired.SetActive(true);
@@ -93,17 +92,5 @@ public class CatItens : MonoBehaviour
         }
     }
 
-    public void Focus()
-    {
-        UIRepairScript.Instance.Select(this);
-        highlight.OutlineColor = Color.white;
-    }
-
-    public void Unfocus()
-    {
-        highlight.OutlineColor = Color.black;
-        //if (broken) { broked.SetActive(true); repaired.SetActive(false); }
-        //else { broked.SetActive(false); repaired.SetActive(true); }
-    }
 
 }
