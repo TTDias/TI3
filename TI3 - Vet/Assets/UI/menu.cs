@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
-    public GameObject dicas, sairPopup;
+    public GameObject dicas, sairPopup, canvasdicatxt;
     public Image imageF;
+    public Text txtajuda;
     public GameObject[] obj, slaider, pause;
     float t = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -181,9 +182,10 @@ public class menu : MonoBehaviour
     }
     public void botaovoutarmenuajuda()
     {
-       foreach (GameObject G in obj)
+        foreach (GameObject G in obj)
         {
-            if(G.name == "ajudatexto" || G.name == "voltarMenu (ajuda)")
+
+            if (G.name == "voltarMenu (ajuda)" || G.name == "dica" || G.name == "dica (1)" || G.name == "dica (2)" || G.name == "dica (3)")
             {
                 G.SetActive(false);
             }
@@ -191,13 +193,15 @@ public class menu : MonoBehaviour
             {
                 G.SetActive(true);
             }
+            canvasdicatxt.SetActive(false);
         }
     }
     public void botaoajuda()
     {
         foreach (GameObject G in obj)
         {
-            if (G.name == "ajudatexto" || G.name == "voltarMenu (ajuda)" || G.name == "menu")
+
+            if (G.name == "menu" || G.name == "voltarMenu (ajuda)" || G.name == "dica" || G.name == "dica (1)" || G.name == "dica (2)" || G.name == "dica (3)")
             {
                 G.SetActive(true);
             }
@@ -205,6 +209,23 @@ public class menu : MonoBehaviour
             {
                 G.SetActive(false);
             }
+            canvasdicatxt.SetActive(true);
         }
+    }
+    public void botaotextoadica()
+    {
+            txtajuda.text = "aaaaaaaaaaaaaaa";
+    }
+    public void botaotextoadica1()
+    {
+        txtajuda.text = "bbbbbbbbbbbbbbbbbbbbbbbbbb";
+    }
+    public void botaotextoadica2()
+    {
+        txtajuda.text = "cccccccccccccccccccccccccccc";
+    }
+    public void botaotextoadica3()
+    {
+        txtajuda.text = "dddddddddddddddddddddddddddd";
     }
 }
