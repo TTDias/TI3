@@ -23,7 +23,7 @@ public class menu : MonoBehaviour
                 t += 0.5f;
                 LeanTween.scale(go, new Vector3(1f, 1f, 1f), 0.5f).setDelay(t).setOnComplete(() =>
                 {
-                    if (go.name != "menu")
+                    if (go.name != "menu" && go.name != "ajudatexto")
                     {
                         LeanTween.scale(go, new Vector3(1.05f, 1.05f, 1.05f), 0.4f).setLoopPingPong();
                     }
@@ -61,14 +61,14 @@ public class menu : MonoBehaviour
         t = 0;
         foreach (GameObject G in obj)
         {
-            if (G.name != "menu")
+            if (G.name != "menu" && G.name != "ajudatexto")
             {
                 LeanTween.scale(G, new Vector3(0f, 0f, 0f), 0.5f).setDelay(t).setOnComplete(() =>
                 {
                     t = 0;
                     foreach (GameObject g in obj)
                     {
-                        if (g.name != "menu")
+                        if (g.name != "menu" && g.name != "ajudatexto")
                         {
                             g.SetActive(false);
                         }
@@ -104,7 +104,7 @@ public class menu : MonoBehaviour
                 }
                 foreach (GameObject g in obj)
                 {
-                    if (g.name != "menu")
+                    if (g.name != "menu" && g.name != "ajudatexto")
                     {
                         g.SetActive(true);
                     }
@@ -119,7 +119,7 @@ public class menu : MonoBehaviour
                 {
                     LeanTween.scale(G, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setIgnoreTimeScale(true).setOnComplete(() =>
                     {
-                        if (G.name != "menu")
+                        if (G.name != "menu" && G.name != "ajudatexto")
                         {
                             //t = 0;
                             LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setLoopPingPong().setIgnoreTimeScale(true);
@@ -137,7 +137,7 @@ public class menu : MonoBehaviour
         {
             foreach (GameObject go in obj)
             {
-                if (go.name != "menu")
+                if (go.name != "menu" && go.name != "ajudatexto")
                 {
                     LeanTween.scale(go, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setIgnoreTimeScale(true).setLoopPingPong();
                 }
@@ -175,8 +175,32 @@ public class menu : MonoBehaviour
             
         }
     }
-    public void botaovoutarmenooutros()
+    public void botaovoutarmenuajuda()
     {
-
+       foreach (GameObject G in obj)
+        {
+            if(G.name == "ajudatexto" || G.name == "voltarMenu (ajuda)")
+            {
+                G.SetActive(false);
+            }
+            else
+            {
+                G.SetActive(true);
+            }
+        }
+    }
+    public void botaoajuda()
+    {
+        foreach (GameObject G in obj)
+        {
+            if (G.name == "ajudatexto" || G.name == "voltarMenu (ajuda)" || G.name == "menu")
+            {
+                G.SetActive(true);
+            }
+            else
+            {
+                G.SetActive(false);
+            }
+        }
     }
 }
