@@ -214,18 +214,18 @@ public class menu : MonoBehaviour
     }
     public void botaotextoadica()
     {
-            txtajuda.text = "aaaaaaaaaaaaaaa";
+            txtajuda.text = "voce pode se movimentar mantendo o dedo precionado na tela e consertar os brinquedos do gato com o butao 'consertar' no canto da tela.";
     }
     public void botaotextoadica1()
     {
-        txtajuda.text = "bbbbbbbbbbbbbbbbbbbbbbbbbb";
+        txtajuda.text = "O gato vai querer usar seus brinquedos para se manter bem e e o seu papeu consertar esses item para mantelo seguro e bem dentro de casa, evitando a comtaminaçao da sporotricoze";
     }
     public void botaotextoadica2()
     {
-        txtajuda.text = "cccccccccccccccccccccccccccc";
+        txtajuda.text = "Apesar de tudo vc deve arrumar sua prapria casa, pois esta em plena mudansa.";
     }
     public void botaotextoadica3()
     {
-        txtajuda.text = "dddddddddddddddddddddddddddd";
+        txtajuda.text = "A fase posue um taimer que mostrar o tempo que voce tem para comcluir suas atividades alem de uma breve dica de o que o gato pode estar precisando mostrado bela barra verde.";
     }
 }
