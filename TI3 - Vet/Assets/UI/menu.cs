@@ -162,6 +162,7 @@ public class menu : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name != "menuinicial")
         {
+            AnalyticsTest.Instance.Save();
             SceneManager.LoadScene("menuinicial");
         }
         else
