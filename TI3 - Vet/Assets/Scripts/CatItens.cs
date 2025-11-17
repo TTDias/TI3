@@ -59,15 +59,12 @@ public class CatItens : InteractiveItem
             if (UIRepairScript.Instance.reparing)
             {
                 LeanTween.delayedCall(3f, () => {
-                    Broke(); other.GetComponent<Animation>().Play("CatItemUse");
-                    LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+                    other.GetComponent<CatPlay>().Play(this);
                 });
             }
             else
             {
-                other.GetComponent<Animation>().Play("CatItemUse");
-                Broke();
-                LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+                other.GetComponent<CatPlay>().Play(this);
             }
         }
         else if (other.tag == "Cat" && broken)
@@ -83,8 +80,8 @@ public class CatItens : InteractiveItem
             trigger = false;
             other.GetComponent<CatPlay>().Cancel();
             LeanTween.delayedCall(3f, () => {
-                trigger = true; Broke(); other.GetComponent<Animation>().Play("CatItemUse");
-                LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+                trigger = true; 
+                other.GetComponent<CatPlay>().Play(this);
             });
             
         }

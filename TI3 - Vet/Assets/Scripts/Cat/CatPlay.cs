@@ -29,6 +29,13 @@ public class CatPlay : MonoBehaviour
         }
     }
 
+    public void Play(CatItens item)
+    {
+        GetComponent<Animation>().Play("CatItemUse");
+        item.Broke();
+        LeanTween.delayedCall(1.5f, Sleep);
+    }
+
     public void Call()
     {
         if (Random.value > 0.5f)
@@ -74,4 +81,6 @@ public class CatPlay : MonoBehaviour
         }
             GetComponent<CatMove>().Runaway();
     }
+
+
 }
