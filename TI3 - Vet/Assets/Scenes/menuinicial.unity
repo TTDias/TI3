@@ -2768,6 +2768,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 486404580947365788, guid: 69c334faadc966147a1781e9ffcaa6f6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 908285394339583232, guid: 69c334faadc966147a1781e9ffcaa6f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -2816,6 +2820,18 @@ PrefabInstance:
       propertyPath: anima
       value: 
       objectReference: {fileID: 1438250279}
+    - target: {fileID: 1802302184539407431, guid: 69c334faadc966147a1781e9ffcaa6f6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025648750423959814, guid: 69c334faadc966147a1781e9ffcaa6f6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382164458758362623, guid: 69c334faadc966147a1781e9ffcaa6f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6279398880783666371, guid: 69c334faadc966147a1781e9ffcaa6f6, type: 3}
       propertyPath: m_Name
       value: PlayerTest (1)
@@ -3973,7 +3989,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696844378}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 343e53ad2e2aa254cb89e932c14350ab, type: 3}
   m_Name: 
@@ -5058,6 +5074,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dicas: {fileID: 0}
   sairPopup: {fileID: 0}
+  canvasdicatxt: {fileID: 0}
+  imageF: {fileID: 0}
+  txtajuda: {fileID: 0}
   obj:
   - {fileID: 137676177}
   - {fileID: 1006654234}

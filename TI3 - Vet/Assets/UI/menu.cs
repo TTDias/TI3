@@ -75,7 +75,7 @@ public class menu : MonoBehaviour
                     t = 0;
                     foreach (GameObject g in obj)
                     {
-                        if (g.name != "menu" && g.name != "ajudatexto")
+                        if (g.name != "menu" && g.name != "ajudatexto" && g.name != "menu dicas")
                         {
                             g.SetActive(false);
                         }
@@ -111,7 +111,7 @@ public class menu : MonoBehaviour
                 }
                 foreach (GameObject g in obj)
                 {
-                    if (g.name != "menu" && g.name != "ajudatexto")
+                    if (g.name != "menu" && g.name != "ajudatexto" && g.name != "menu dicas")
                     {
                         g.SetActive(true);
                     }
@@ -190,7 +190,7 @@ public class menu : MonoBehaviour
         foreach (GameObject G in obj)
         {
 
-            if (G.name == "voltarMenu (ajuda)" || G.name == "dica" || G.name == "dica (1)" || G.name == "dica (2)" || G.name == "dica (3)")
+            if (G.name == "voltarMenu (ajuda)" || G.name == "dica" || G.name == "dica (1)" || G.name == "dica (2)" || G.name == "dica (3)" || G.name == "menu dicas")
             {
                 G.SetActive(false);
             }
@@ -206,7 +206,7 @@ public class menu : MonoBehaviour
         foreach (GameObject G in obj)
         {
 
-            if (G.name == "menu" || G.name == "voltarMenu (ajuda)" || G.name == "dica" || G.name == "dica (1)" || G.name == "dica (2)" || G.name == "dica (3)")
+            if (G.name == "menu" || G.name == "voltarMenu (ajuda)" || G.name == "dica" || G.name == "dica (1)" || G.name == "dica (2)" || G.name == "dica (3)" || G.name == "menu dicas")
             {
                 G.SetActive(true);
             }
