@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CatPlay : MonoBehaviour
 {
-
+    private CatSoundMannager catSound;
     public float waitTime;
     public float cooldown;
     public bool waiting;
@@ -15,6 +15,10 @@ public class CatPlay : MonoBehaviour
 
     public bool catHurted = false;
     // Update is called once per frame
+    void Start()
+    {
+        catSound = GetComponent<CatSoundMannager>();
+    }
     void Update()
     {
         if (cooldown > 0 && waiting) cooldown -= Time.deltaTime;
@@ -27,12 +31,18 @@ public class CatPlay : MonoBehaviour
 
     public void Call()
     {
+        if (Random.value > 0.5f)
+            catSound.PlayMeow();
+        else
+            catSound.PlayMeow2();
+
         cooldown = waitTime;
         waiting = true;
     }
 
     public void Sleep()
     {
+        catSound.PlaySleep();
         GetComponent<CatMove>().Sleep();
     }
 
@@ -53,12 +63,14 @@ public class CatPlay : MonoBehaviour
         {
             GameManager.RunawayScoreDown();
             fightProb += 0.5f;
+            catSound.PlayAngry();
         }
         else
         {
             catHurted = true;
             GameManager.FightPenality();
             fightProb = 0;
+            catSound.PlayMeow2();
         }
             GetComponent<CatMove>().Runaway();
     }

@@ -16,6 +16,7 @@ public class PlayerPickup : MonoBehaviour
             obj.transform.parent = pickup;
             obj.transform.localPosition = Vector3.zero;
             carrying = true;
+            PlayerSoundMannager.Instance.PlayPop();
             PickupBox?.Invoke();
         }
         
@@ -29,6 +30,8 @@ public class PlayerPickup : MonoBehaviour
             if (carrying && !area.obj.activeSelf && area.boxConstruct == null)
             {
                 carrying = false;
+                PlayerSoundMannager.Instance.PlayPop();
+                PlaceBox?.Invoke();
                 area.BuildStart(pickup.GetChild(0).gameObject);
             }
             else if (area.boxConstruct != null)

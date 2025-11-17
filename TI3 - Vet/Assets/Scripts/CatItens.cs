@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class CatItens : InteractiveItem
 {
+    private CatSoundMannager catSound;
     public enum Item { food, post, toy, litterbox }
     [SerializeField] Item type;
 
@@ -19,6 +20,7 @@ public class CatItens : InteractiveItem
         broken = true;
         repairSum = 0;
         highlight = GetComponent<Outline>();
+        catSound = FindObjectOfType<CatSoundMannager>();
     }
 
     public void Broke()
@@ -44,12 +46,16 @@ public class CatItens : InteractiveItem
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && broken)
+
+        if (other.tag == "Player" && broken)
         {
             Focus();
         }
         else if(other.tag == "Cat" && !broken)
         {
+            if (type == Item.food)
+                catSound.PlayEat();
+
             if (UIRepairScript.Instance.reparing)
             {
                 LeanTween.delayedCall(3f, () => {
