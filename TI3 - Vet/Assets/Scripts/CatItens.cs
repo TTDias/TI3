@@ -2,8 +2,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CatItens : MonoBehaviour
+public class CatItens : InteractiveItem
 {
+    private CatSoundMannager catSound;
     public enum Item { food, post, toy, litterbox }
     [SerializeField] Item type;
 
@@ -11,15 +12,15 @@ public class CatItens : MonoBehaviour
 
     bool trigger = true;
 
-    Outline highlight;
     public GameObject broked, repaired;
 
     static int repairSum;
     void Start()
     {
-        highlight = GetComponent<Outline>();
         broken = true;
         repairSum = 0;
+        highlight = GetComponent<Outline>();
+        catSound = FindObjectOfType<CatSoundMannager>();
     }
 
     public void Broke()
@@ -28,14 +29,14 @@ public class CatItens : MonoBehaviour
        
     }
 
-    public void Repair()
+    public override void Use()
     {
         broked.SetActive(false);
         repaired.SetActive(true);
         broken = false;
 
         repairSum++;
-        AnalyticsTest.Instance.AddAnalytics("Cat Item: " + type.ToString(), "Repairs", repairSum.ToString());
+        AnalyticsTest.Instance.AddAnalytics(type.ToString(), "Repaired Itens", repairSum.ToString());
     }
 
     public bool IsItemType(Item type)
@@ -45,24 +46,25 @@ public class CatItens : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && broken)
+
+        if (other.tag == "Player" && broken)
         {
             Focus();
         }
         else if(other.tag == "Cat" && !broken)
         {
+            if (type == Item.food)
+                catSound.PlayEat();
+
             if (UIRepairScript.Instance.reparing)
             {
                 LeanTween.delayedCall(3f, () => {
-                    Broke(); other.GetComponent<Animation>().Play("CatItemUse");
-                    LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+                    other.GetComponent<CatPlay>().Play(this);
                 });
             }
             else
             {
-                other.GetComponent<Animation>().Play("CatItemUse");
-                Broke();
-                LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+                other.GetComponent<CatPlay>().Play(this);
             }
         }
         else if (other.tag == "Cat" && broken)
@@ -78,8 +80,8 @@ public class CatItens : MonoBehaviour
             trigger = false;
             other.GetComponent<CatPlay>().Cancel();
             LeanTween.delayedCall(3f, () => {
-                trigger = true; Broke(); other.GetComponent<Animation>().Play("CatItemUse");
-                LeanTween.delayedCall(1.5f, other.GetComponent<CatPlay>().Sleep);
+                trigger = true; 
+                other.GetComponent<CatPlay>().Play(this);
             });
             
         }
@@ -93,17 +95,5 @@ public class CatItens : MonoBehaviour
         }
     }
 
-    public void Focus()
-    {
-        UIRepairScript.Instance.Select(this);
-        highlight.OutlineColor = Color.white;
-    }
-
-    public void Unfocus()
-    {
-        highlight.OutlineColor = Color.black;
-        //if (broken) { broked.SetActive(true); repaired.SetActive(false); }
-        //else { broked.SetActive(false); repaired.SetActive(true); }
-    }
 
 }

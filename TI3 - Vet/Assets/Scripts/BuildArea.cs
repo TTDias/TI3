@@ -7,6 +7,7 @@ public class BuildArea : MonoBehaviour
 
     public GameObject boxConstruct;
 
+    static int totalBuild = 0;
     private void OnEnable()
     {
         PlayerPickup.PickupBox += AreaHighlight;
@@ -63,5 +64,8 @@ public class BuildArea : MonoBehaviour
         Destroy(boxConstruct);
         PlayerPickup.PickupBox -= AreaHighlight;
         GameManager.BoxPlacementScoreUp();
+
+        totalBuild++;
+        AnalyticsTest.Instance.AddAnalytics(obj.name, "Builded Furnitures", totalBuild.ToString());
     }
 }

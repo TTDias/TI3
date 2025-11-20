@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     bool isPressed;
     Vector2 position;
     public Animator anima;
+    float idleTime = 0;
     void Update()
     {
         if (UIRepairScript.Instance.reparing == true) return;
@@ -18,7 +19,7 @@ public class PlayerMove : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(position);
             RaycastHit hit;
-            anima.SetFloat("Blend", 0);
+            anima.SetFloat("Blend", 1);
             if (Physics.Raycast(ray, out hit))
             {
                 agent.SetDestination(hit.point);
@@ -27,7 +28,18 @@ public class PlayerMove : MonoBehaviour
         else if (agent.hasPath)
         {
             agent.ResetPath();
-            anima.SetFloat("Blend", 1);
+            anima.SetFloat("Blend", 0);
+        }
+
+
+        if(anima.GetFloat("Blend") == 0)
+        {
+            idleTime += Time.deltaTime;
+            anima.SetFloat("Time", idleTime);
+        }
+        if(idleTime >= 4 || anima.GetFloat("Blend") == 1)
+        {
+            idleTime = -1;
         }
     }
 

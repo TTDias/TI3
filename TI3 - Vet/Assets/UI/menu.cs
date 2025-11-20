@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
-    public GameObject dicas, sairPopup;
+    public GameObject dicas, sairPopup, canvasdicatxt;
+    public Image imageF;
+    public Text txtajuda;
     public GameObject[] obj, slaider, pause;
     float t = 0;
+
+    static int plays = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +28,7 @@ public class menu : MonoBehaviour
                 t += 0.5f;
                 LeanTween.scale(go, new Vector3(1f, 1f, 1f), 0.5f).setDelay(t).setOnComplete(() =>
                 {
-                    if (go.name != "menu")
+                    if (go.name != "menu" && go.name != "ajudatexto")
                     {
                         LeanTween.scale(go, new Vector3(1.05f, 1.05f, 1.05f), 0.4f).setLoopPingPong();
                     }
@@ -42,6 +47,8 @@ public class menu : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "menuinicial")
         {
+            plays++;
+            AnalyticsTest.Instance.AddAnalytics("Game", "Plays", plays.ToString());
             SceneManager.LoadScene("SampleScene");
             GameManager.GameStart();
         }
@@ -61,14 +68,14 @@ public class menu : MonoBehaviour
         t = 0;
         foreach (GameObject G in obj)
         {
-            if (G.name != "menu")
+            if (G.name != "menu" && G.name != "ajudatexto")
             {
                 LeanTween.scale(G, new Vector3(0f, 0f, 0f), 0.5f).setDelay(t).setOnComplete(() =>
                 {
                     t = 0;
                     foreach (GameObject g in obj)
                     {
-                        if (g.name != "menu")
+                        if (g.name != "menu" && g.name != "ajudatexto" && g.name != "menu dicas")
                         {
                             g.SetActive(false);
                         }
@@ -104,7 +111,7 @@ public class menu : MonoBehaviour
                 }
                 foreach (GameObject g in obj)
                 {
-                    if (g.name != "menu")
+                    if (g.name != "menu" && g.name != "ajudatexto" && g.name != "menu dicas")
                     {
                         g.SetActive(true);
                     }
@@ -119,7 +126,7 @@ public class menu : MonoBehaviour
                 {
                     LeanTween.scale(G, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setIgnoreTimeScale(true).setOnComplete(() =>
                     {
-                        if (G.name != "menu")
+                        if (G.name != "menu" && G.name != "ajudatexto")
                         {
                             //t = 0;
                             LeanTween.scale(G, new Vector3(1, 1, 1), 0.5f).setLoopPingPong().setIgnoreTimeScale(true);
@@ -132,12 +139,13 @@ public class menu : MonoBehaviour
     }
     public void botaopause()
     {
+        imageF.enabled = true;
         Time.timeScale = 0;
         LeanTween.scale(obj[0], new Vector3(1, 1, 1), 0.5f).setOnComplete(() =>
         {
             foreach (GameObject go in obj)
             {
-                if (go.name != "menu")
+                if (go.name != "menu" && go.name != "ajudatexto")
                 {
                     LeanTween.scale(go, new Vector3(1.1f, 1.1f, 1.1f), 0.5f).setIgnoreTimeScale(true).setLoopPingPong();
                 }
@@ -150,6 +158,7 @@ public class menu : MonoBehaviour
     public void botaoDespause()
     {
         Time.timeScale = 1;
+        imageF.enabled = false;
         LeanTween.scale(obj[0], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
         LeanTween.scale(pause[0], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
         LeanTween.scale(pause[1], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
@@ -158,6 +167,7 @@ public class menu : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name != "menuinicial")
         {
+            AnalyticsTest.Instance.Save();
             SceneManager.LoadScene("menuinicial");
         }
         else
@@ -175,8 +185,52 @@ public class menu : MonoBehaviour
             
         }
     }
-    public void botaovoutarmenooutros()
+    public void botaovoutarmenuajuda()
     {
+        foreach (GameObject G in obj)
+        {
 
+            if (G.name == "voltarMenu (ajuda)" || G.name == "dica" || G.name == "dica (1)" || G.name == "dica (2)" || G.name == "dica (3)" || G.name == "menu dicas")
+            {
+                G.SetActive(false);
+            }
+            else
+            {
+                G.SetActive(true);
+            }
+            canvasdicatxt.SetActive(false);
+        }
+    }
+    public void botaoajuda()
+    {
+        foreach (GameObject G in obj)
+        {
+
+            if (G.name == "menu" || G.name == "voltarMenu (ajuda)" || G.name == "dica" || G.name == "dica (1)" || G.name == "dica (2)" || G.name == "dica (3)" || G.name == "menu dicas")
+            {
+                G.SetActive(true);
+            }
+            else
+            {
+                G.SetActive(false);
+            }
+            canvasdicatxt.SetActive(true);
+        }
+    }
+    public void botaotextoadica()
+    {
+            txtajuda.text = "voce pode se movimentar mantendo o dedo precionado na tela e consertar os brinquedos do gato com o butao 'consertar' no canto da tela.";
+    }
+    public void botaotextoadica1()
+    {
+        txtajuda.text = "O gato vai querer usar seus brinquedos para se manter bem e e o seu papeu consertar esses item para mantelo seguro e bem dentro de casa, evitando a comtaminaçao da sporotricoze";
+    }
+    public void botaotextoadica2()
+    {
+        txtajuda.text = "Apesar de tudo vc deve arrumar sua prapria casa, pois esta em plena mudansa.";
+    }
+    public void botaotextoadica3()
+    {
+        txtajuda.text = "A fase posue um taimer que mostrar o tempo que voce tem para comcluir suas atividades alem de uma breve dica de o que o gato pode estar precisando mostrado bela barra verde.";
     }
 }

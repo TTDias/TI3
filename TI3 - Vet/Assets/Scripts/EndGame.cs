@@ -12,5 +12,7 @@ public class EndGame : MonoBehaviour
         if (GameManager.score > GameManager.starScore1) star1.SetActive(true);
         if (GameManager.score > GameManager.starScore2) star2.SetActive(true);
         if (GameManager.score > GameManager.starScore3) star3.SetActive(true);
+        AnalyticsTest.Instance.AddAnalytics("Game", "Final score", GameManager.score.ToString());
+        AnalyticsTest.Instance.Save();
     }
 }

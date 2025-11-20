@@ -1,58 +1,16 @@
 {
     "data": [
         {
-            "time": 17.337186813354493,
+            "time": 17.572551727294923,
             "sender": "Cat",
             "track": "Runaway",
             "value": "1"
         },
         {
-            "time": 17.337186813354493,
+            "time": 17.572551727294923,
             "sender": "Cat",
             "track": "Runaway Item",
             "value": "Scratcher"
-        },
-        {
-            "time": 21.5605411529541,
-            "sender": "Cat Item: post",
-            "track": "Repairs",
-            "value": "1"
-        },
-        {
-            "time": 26.881872177124025,
-            "sender": "Cat Item: litterbox",
-            "track": "Repairs",
-            "value": "2"
-        },
-        {
-            "time": 44.07231140136719,
-            "sender": "Cat Item: food",
-            "track": "Repairs",
-            "value": "3"
-        },
-        {
-            "time": 62.360164642333987,
-            "sender": "Cat Item: food",
-            "track": "Repairs",
-            "value": "4"
-        },
-        {
-            "time": 97.09642028808594,
-            "sender": "Cat",
-            "track": "Runaway",
-            "value": "2"
-        },
-        {
-            "time": 97.09642028808594,
-            "sender": "Cat",
-            "track": "Runaway Item",
-            "value": "Scratcher"
-        },
-        {
-            "time": 119.98622131347656,
-            "sender": "Game",
-            "track": "Victories",
-            "value": "1"
         }
     ]
 }
