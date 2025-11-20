@@ -2551,6 +2551,10 @@ PrefabInstance:
       propertyPath: menu
       value: 
       objectReference: {fileID: 857834058}
+    - target: {fileID: 5407979757396778951, guid: 128000ae7531e5440a13bd513032f5b0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7466478743527555458, guid: 128000ae7531e5440a13bd513032f5b0, type: 3}
       propertyPath: 'positions.Array.data[0]'
       value: 
