@@ -213,6 +213,7 @@ MonoBehaviour:
   btn: {fileID: 48950240035282074}
   loadBar: {fileID: 4709134595074293065}
   reparing: 0
+  player: {fileID: 1802302184539407431}
 --- !u!1 &3382164458758362623
 GameObject:
   m_ObjectHideFlags: 0

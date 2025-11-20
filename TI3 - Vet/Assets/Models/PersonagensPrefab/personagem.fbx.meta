@@ -121,8 +121,8 @@ ModelImporter:
       name: Armature|mudanca
       takeName: Armature|mudanca
       internalID: -6940519316996701226
-      firstFrame: 0
-      lastFrame: 61
+      firstFrame: 4
+      lastFrame: 55
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -151,7 +151,7 @@ ModelImporter:
       takeName: Armature|normal
       internalID: -1801107903266188170
       firstFrame: 0
-      lastFrame: 61
+      lastFrame: 55
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -159,7 +159,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

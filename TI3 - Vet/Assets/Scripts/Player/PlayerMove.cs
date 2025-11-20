@@ -53,6 +53,16 @@ public class PlayerMove : MonoBehaviour
         isPressed = context.ReadValue<float>() > 0;
     }
 
+    public void UseItem()
+    {
+        anima.SetTrigger("UseItem");
+    }
+
+    public void Build(bool val)
+    {
+        anima.SetBool("Build", val);
+    }
+        
     bool IsPointerOverUI()
     {
 #if UNITY_ANDROID || UNITY_IOS

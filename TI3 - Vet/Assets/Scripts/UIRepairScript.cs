@@ -9,6 +9,8 @@ public class UIRepairScript : MonoBehaviour
     InteractiveItem obj;
     public bool reparing = false;
 
+    public PlayerMove player;
+
     private void Awake()
     {
         Instance = this;
@@ -27,6 +29,7 @@ public class UIRepairScript : MonoBehaviour
         }
         btn.interactable = true;
         obj = item;
+        btn.onClick.AddListener(player.UseItem);
         btn.onClick.AddListener(obj.Use);
         btn.onClick.AddListener( ButtonLoad );
     }
