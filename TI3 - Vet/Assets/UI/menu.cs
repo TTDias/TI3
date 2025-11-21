@@ -159,7 +159,21 @@ public class menu : MonoBehaviour
     {
         Time.timeScale = 1;
         imageF.enabled = false;
-        LeanTween.scale(obj[0], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(obj[0], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true).setOnComplete(() =>
+        {
+            foreach (GameObject S in slaider)
+            {
+                S.gameObject.SetActive(false);
+            }
+            foreach (GameObject g in obj)
+            {
+                if (g.name != "menu")
+                {
+                    g.SetActive(true);
+                    g.transform.localScale = Vector3.one;
+                }
+            }
+        });
         LeanTween.scale(pause[0], new Vector3(1, 1, 1), 0.5f).setIgnoreTimeScale(true);
         LeanTween.scale(pause[1], new Vector3(0, 0, 0), 0.5f).setIgnoreTimeScale(true);
     }

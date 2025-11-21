@@ -6,13 +6,14 @@ public class CatMove : MonoBehaviour
 {
     public NavMeshAgent meshAgent;
     public Transform[] positions;
-    public Vector3 sleepPoint, exitPoint;
+    public Transform sleepPoint, exitPoint, runawayPoint;
 
     public float sleepTime;
     float sleepCooldown;
     bool sleeping, running;
 
     GameObject trackingItem;
+    public Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,25 +39,29 @@ public class CatMove : MonoBehaviour
             running = false;
             RunAwayStart();
         }
+        animator.SetFloat("Velocity", meshAgent.velocity.magnitude);
     }
 
     public void Sleep(float mod = 1)
     {
-        sleepCooldown = sleepTime;
-        meshAgent.SetDestination(sleepPoint*mod);
+        sleepCooldown = sleepTime * mod;
+        meshAgent.SetDestination(sleepPoint.position);
         sleeping = true;
     }
 
     public void Runaway()
     {
         AnalyticsTest.Instance.AddAnalytics("Cat", "Runaway Item", trackingItem.name);
-        meshAgent.SetDestination(exitPoint);
+        meshAgent.SetDestination(exitPoint.position);
         running = true;
     }
 
     void RunAwayStart()
     {
-        GetComponent<Animation>().Play("CatWindowJump");
-        LeanTween.delayedCall(sleepTime - 1, () => { GetComponent<Animation>().Play("CatWindowBack"); Sleep(0.7f); });
+        animator.SetTrigger("Jump");
+        LeanTween.delayedCall(0.7f, () => { meshAgent.SetDestination(exitPoint.position + new Vector3(1, 1, 0)); });  
+        LeanTween.delayedCall(1, () => { meshAgent.SetDestination(runawayPoint.position); });
+        //GetComponent<Animation>().Play("CatWindowJump");
+        LeanTween.delayedCall(sleepTime - 1, () => { meshAgent.SetDestination(exitPoint.position); Sleep(0.8f); });
     }
 }
