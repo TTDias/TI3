@@ -11,17 +11,19 @@ public class PlayerMove : MonoBehaviour
     Vector2 position;
     public Animator anima;
     float idleTime = 0;
+    public LayerMask ground;
     void Update()
     {
         anima.SetFloat("Blend", agent.velocity.magnitude);
-        if (UIRepairScript.Instance.reparing == true) return;
+        if (gameObject.name == "PlayerFinalVariant")
+            if (UIRepairScript.Instance.reparing == true) return;
 
         if (isPressed && !IsPointerOverUI())
         {
             Ray ray = Camera.main.ScreenPointToRay(position);
             RaycastHit hit;
             //anima.SetFloat("Blend", 1);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
                 agent.SetDestination(hit.point);
             }

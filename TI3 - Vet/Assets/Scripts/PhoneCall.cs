@@ -5,9 +5,11 @@ using UnityEngine;
 public class PhoneCall : InteractiveItem
 {
     public CatPlay[] cats;
+    int vetcall = 0;
     void Start()
     {
         highlight = GetComponent<Outline>();
+        vetcall = 0;
     }
 
     public override void Use()
@@ -17,7 +19,9 @@ public class PhoneCall : InteractiveItem
             if (cat.catHurted)
             {
                 cat.catHurted = false;
+                vetcall++;
                 GameManager.VetCall();
+                AnalyticsTest.Instance.AddAnalytics("Phone", "Vet called", vetcall.ToString());
                 break;
             }
         }

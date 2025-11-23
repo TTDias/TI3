@@ -23,6 +23,7 @@ public class BuildArea : MonoBehaviour
     {
         area.SetActive(false);
         obj.SetActive(false);
+        totalBuild = 0;
     }
 
     void AreaHighlight()
