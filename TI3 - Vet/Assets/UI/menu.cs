@@ -235,7 +235,7 @@ public class menu : MonoBehaviour
     }
     public void botaotextoadica1()
     {
-        txtajuda.text = "O gato vai querer brincar, beber água e usar caixinha de areia e o seu papel consertar esses item para mantelo seguro. Se as necessidades do gato não forem supridas, ele pode fugir de casa e se contaminar com a esporotricose, principlamente brigando com gatos contaminados";
+        txtajuda.text = "O gato vai querer brincar, beber água e usar caixinha de areia e o seu papel é consertar esses item para mantelo seguro. Se as necessidades do gato não forem supridas, ele pode fugir de casa e se contaminar com a esporotricose, principlamente brigando com gatos contaminados";
     }
     public void botaotextoadica2()
     {
@@ -247,7 +247,7 @@ public class menu : MonoBehaviour
     }
     public void botaotextoadica4()
     {
-        txtajuda.text = "A esporotricose é uma doença que seu gato pode pegar ao se contaminar com os esporos de um fungo. Ela se caracteriza por diversos sintomas, como feridas pelo corpo do gato. Tome cuidado, pois a doneça também pode contaminar humanos. Se perceber os sintomas, evite o contato com seu gato e comunique seu veterinário.";
+        txtajuda.text = "A esporotricose é uma doença que seu gato pode pegar ao se contaminar com os esporos de um fungo. Ela se caracteriza por diversos sintomas, como feridas pelo corpo do gato. Tome cuidado, pois a doença também pode contaminar humanos. Se perceber os sintomas, evite o contato com seu gato e comunique seu veterinário.";
     }
 
 }

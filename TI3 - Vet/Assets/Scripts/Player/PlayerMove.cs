@@ -13,13 +13,14 @@ public class PlayerMove : MonoBehaviour
     float idleTime = 0;
     void Update()
     {
+        anima.SetFloat("Blend", agent.velocity.magnitude);
         if (UIRepairScript.Instance.reparing == true) return;
 
         if (isPressed && !IsPointerOverUI())
         {
             Ray ray = Camera.main.ScreenPointToRay(position);
             RaycastHit hit;
-            anima.SetFloat("Blend", 1);
+            //anima.SetFloat("Blend", 1);
             if (Physics.Raycast(ray, out hit))
             {
                 agent.SetDestination(hit.point);
@@ -28,7 +29,7 @@ public class PlayerMove : MonoBehaviour
         else if (agent.hasPath)
         {
             agent.ResetPath();
-            anima.SetFloat("Blend", 0);
+            //anima.SetFloat("Blend", 0);
         }
 
 

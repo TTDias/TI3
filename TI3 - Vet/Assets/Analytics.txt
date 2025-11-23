@@ -1,82 +1,106 @@
 {
     "data": [
         {
-            "time": 146.8856201171875,
-            "sender": "post",
+            "time": 338.904296875,
+            "sender": "water",
             "track": "Repaired Itens",
             "value": "1"
         },
         {
-            "time": 153.42137145996095,
-            "sender": "litterbox",
+            "time": 348.68170166015627,
+            "sender": "ProtectiveScreen",
+            "track": "Builded Furnitures",
+            "value": "8"
+        },
+        {
+            "time": 348.68170166015627,
+            "sender": "ProtectiveScreen",
+            "track": "Builded Furnitures",
+            "value": "9"
+        },
+        {
+            "time": 362.80322265625,
+            "sender": "post",
             "track": "Repaired Itens",
             "value": "2"
         },
         {
-            "time": 162.21922302246095,
-            "sender": "water",
+            "time": 363.6078796386719,
+            "sender": "Cat",
+            "track": "Runaway",
+            "value": "1"
+        },
+        {
+            "time": 363.6078796386719,
+            "sender": "Cat",
+            "track": "Runaway Item",
+            "value": "Litterbox"
+        },
+        {
+            "time": 381.1743469238281,
+            "sender": "Sofa",
+            "track": "Builded Furnitures",
+            "value": "10"
+        },
+        {
+            "time": 404.3807067871094,
+            "sender": "ProtectiveScreen",
+            "track": "Builded Furnitures",
+            "value": "11"
+        },
+        {
+            "time": 404.3807067871094,
+            "sender": "ProtectiveScreen",
+            "track": "Builded Furnitures",
+            "value": "12"
+        },
+        {
+            "time": 408.29876708984377,
+            "sender": "Cat",
+            "track": "Runaway",
+            "value": "2"
+        },
+        {
+            "time": 408.29876708984377,
+            "sender": "Cat",
+            "track": "Runaway Item",
+            "value": "Scratcher"
+        },
+        {
+            "time": 418.2935791015625,
+            "sender": "ProtectiveScreen",
+            "track": "Builded Furnitures",
+            "value": "13"
+        },
+        {
+            "time": 428.3323059082031,
+            "sender": "post",
             "track": "Repaired Itens",
             "value": "3"
         },
         {
-            "time": 168.72323608398438,
+            "time": 439.6592102050781,
             "sender": "Cat",
             "track": "Runaway",
-            "value": "1"
+            "value": "3"
         },
         {
-            "time": 168.72323608398438,
+            "time": 439.6592102050781,
             "sender": "Cat",
             "track": "Runaway Item",
-            "value": "Scratcher"
+            "value": "WaterBowl"
         },
         {
-            "time": 180.61904907226563,
-            "sender": "post",
-            "track": "Repaired Itens",
-            "value": "4"
-        },
-        {
-            "time": 217.2900390625,
-            "sender": "ProtectiveScreen",
-            "track": "Builded Furnitures",
-            "value": "2"
-        },
-        {
-            "time": 223.225341796875,
-            "sender": "Cat",
-            "track": "Runaway",
-            "value": "2"
-        },
-        {
-            "time": 223.225341796875,
-            "sender": "Cat",
-            "track": "Runaway Item",
-            "value": "Scratcher"
-        },
-        {
-            "time": 233.5358428955078,
-            "sender": "post",
-            "track": "Repaired Itens",
-            "value": "5"
-        },
-        {
-            "time": 240.358154296875,
-            "sender": "litterbox",
-            "track": "Repaired Itens",
-            "value": "6"
-        },
-        {
-            "time": 251.28216552734376,
+            "time": 441.1936950683594,
             "sender": "Game",
-            "track": "Loses",
+            "track": "Victories",
             "value": "2"
         },
         {
-            "time": 251.3750762939453,
+            "time": 441.25543212890627,
             "sender": "Game",
             "track": "Final score",
-            "value": "300"
+            "value": "625"
         }
     ]
 }
