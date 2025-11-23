@@ -235,7 +235,7 @@ public class menu : MonoBehaviour
     }
     public void botaotextoadica1()
     {
-        txtajuda.text = "O gato vai querer brincar, beber água e usar caixinha de areia e o seu papel é consertar esses item para mantelo seguro. Se as necessidades do gato não forem supridas, ele pode fugir de casa e se contaminar com a esporotricose, principlamente brigando com gatos contaminados";
+        txtajuda.text = "O gato vai querer brincar, beber água e usar caixinha de areia e o seu papel é consertar esses item para mantê-lo seguro. Se as necessidades do gato não forem supridas, ele pode fugir de casa e se contaminar com a esporotricose, principlamente brigando com gatos contaminados";
     }
     public void botaotextoadica2()
     {
