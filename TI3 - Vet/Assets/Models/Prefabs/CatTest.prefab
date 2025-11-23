@@ -124,6 +124,7 @@ MonoBehaviour:
   runawayPoint: {fileID: 0}
   sleepTime: 10
   animator: {fileID: 8588543781246861031}
+  menu: {fileID: 0}
 --- !u!114 &3033922899741763449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,10 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0898c1a83264443869c791d926740c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 6
+  waitTime: 8.5
   cooldown: 0
   waiting: 0
-  menu: {fileID: 0}
   catHurted: 0
 --- !u!111 &5407979757396778951
 Animation:

@@ -1,106 +1,82 @@
 {
     "data": [
         {
-            "time": 648.8081665039063,
-            "sender": "ProtectiveScreen",
-            "track": "Builded Furnitures",
-            "value": "1"
-        },
-        {
-            "time": 651.772216796875,
-            "sender": "Cat",
-            "track": "Runaway",
-            "value": "1"
-        },
-        {
-            "time": 651.772216796875,
-            "sender": "Cat",
-            "track": "Runaway Item",
-            "value": "Scratcher"
-        },
-        {
-            "time": 655.5369873046875,
+            "time": 146.8856201171875,
             "sender": "post",
             "track": "Repaired Itens",
             "value": "1"
         },
         {
-            "time": 665.5400390625,
+            "time": 153.42137145996095,
             "sender": "litterbox",
             "track": "Repaired Itens",
             "value": "2"
         },
         {
-            "time": 678.4371948242188,
+            "time": 162.21922302246095,
             "sender": "water",
             "track": "Repaired Itens",
             "value": "3"
         },
         {
-            "time": 680.8001708984375,
-            "sender": "ProtectiveScreen",
-            "track": "Builded Furnitures",
-            "value": "2"
+            "time": 168.72323608398438,
+            "sender": "Cat",
+            "track": "Runaway",
+            "value": "1"
         },
         {
-            "time": 696.452880859375,
-            "sender": "ProtectiveScreen",
-            "track": "Builded Furnitures",
-            "value": "3"
+            "time": 168.72323608398438,
+            "sender": "Cat",
+            "track": "Runaway Item",
+            "value": "Scratcher"
         },
         {
-            "time": 696.452880859375,
-            "sender": "ProtectiveScreen",
-            "track": "Builded Furnitures",
-            "value": "4"
-        },
-        {
-            "time": 700.8234252929688,
+            "time": 180.61904907226563,
             "sender": "post",
             "track": "Repaired Itens",
             "value": "4"
         },
         {
-            "time": 726.2138671875,
+            "time": 217.2900390625,
+            "sender": "ProtectiveScreen",
+            "track": "Builded Furnitures",
+            "value": "2"
+        },
+        {
+            "time": 223.225341796875,
             "sender": "Cat",
             "track": "Runaway",
             "value": "2"
         },
         {
-            "time": 726.2138671875,
+            "time": 223.225341796875,
             "sender": "Cat",
             "track": "Runaway Item",
-            "value": "WaterBowl"
+            "value": "Scratcher"
         },
         {
-            "time": 736.8136596679688,
-            "sender": "Bed",
-            "track": "Builded Furnitures",
+            "time": 233.5358428955078,
+            "sender": "post",
+            "track": "Repaired Itens",
             "value": "5"
         },
         {
-            "time": 752.1085815429688,
-            "sender": "ProtectiveScreen",
-            "track": "Builded Furnitures",
+            "time": 240.358154296875,
+            "sender": "litterbox",
+            "track": "Repaired Itens",
             "value": "6"
         },
         {
-            "time": 752.1085815429688,
-            "sender": "ProtectiveScreen",
-            "track": "Builded Furnitures",
-            "value": "7"
-        },
-        {
-            "time": 754.5155639648438,
+            "time": 251.28216552734376,
             "sender": "Game",
-            "track": "Victories",
-            "value": "1"
+            "track": "Loses",
+            "value": "2"
         },
         {
-            "time": 754.5855102539063,
+            "time": 251.3750762939453,
             "sender": "Game",
             "track": "Final score",
-            "value": "700"
+            "value": "300"
         }
     ]
 }
