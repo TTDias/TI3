@@ -7,7 +7,7 @@ public class menu : MonoBehaviour
 {
     public GameObject dicas, sairPopup, canvasdicatxt;
     public Image imageF;
-    public Text txtajuda;
+    public Text txtajuda, txtajudaJogo;
     public GameObject[] obj, slaider, pause;
     float t = 0;
 
@@ -193,12 +193,9 @@ public class menu : MonoBehaviour
 
     public void MostrarDica(string msg = null)
     {
-        if (msg != null)
-        {
-            return;
-        }
+        txtajudaJogo.text = msg;
         LeanTween.scaleY(dicas, 1.74f, 0.5f);
-        LeanTween.delayedCall(7f, () => { LeanTween.scaleY(dicas, 0, 0.5f); });
+        LeanTween.delayedCall(10f, () => { LeanTween.scaleY(dicas, 0, 0.5f); });
     }
     public void botaovoutarmenuajuda()
     {

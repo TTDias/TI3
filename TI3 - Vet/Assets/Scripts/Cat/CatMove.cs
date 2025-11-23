@@ -70,18 +70,14 @@ public class CatMove : MonoBehaviour
             if (trackingItem.GetComponent<CatItens>().IsItemType(CatItens.Item.water))
                 msg += "Gatos são animais dificeis para beber água. Tenha preferencialmente mais que um pote e garanta que os estejam sempre limpos e troque a água com frequência. Gatos podem fugir de casa e beber água suja de poças, por exemplo.";
             else if (trackingItem.GetComponent<CatItens>().IsItemType(CatItens.Item.post))
-                msg += "Tenha sempre opções para o gato brincar. Sem isso, eles podem se sentir entediados e estressados por não gastarem energia e buscar esses estimulos na rua, arranhando troncos podres, caçando animais potencialmente doentes e brigando com outros gatos, podendo constrair a esporotricose.";
+                msg += "Tenha sempre opções para o gato brincar. Sem isso, eles podem se sentir entediados e estressados por não gastarem energia e buscar esses estimulos na rua.\n Podem arranhar troncos podres, caçar animais potencialmente doentes e brigar com gatos contaminados, podendo constrair a esporotricose.";
             else if (trackingItem.GetComponent<CatItens>().IsItemType(CatItens.Item.litterbox))
                 msg += "Lembre-se de limpar a caixa de areia do seu gato. Com a caixa de areia suja, eles vão se recusar a usar e podem sair de casa para fazer suas necessiades. Ao cavar a terra com suas unhas, elas podem se sujar com os esporos do fungo e contaminar outro gato em uma briga, ou contaminar o próprio dono.";
             else
                 msg += "Seu gato precisa de um ambiente doméstico estimulante, caso o contrário poderá ter problemas relacionados a estresse e fugir de casa com mais frequência";
 
         }
-        LeanTween.delayedCall(2, () =>
-        {
-            menu.MostrarDica(msg);
-
-        });
+        menu.MostrarDica(msg);
         LeanTween.delayedCall(sleepTime - 1, () => { meshAgent.SetDestination(exitPoint.position); Sleep(0.8f); });
     }
 }
