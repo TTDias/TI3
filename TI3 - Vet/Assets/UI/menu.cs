@@ -1,3 +1,4 @@
+using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -192,12 +193,12 @@ public class menu : MonoBehaviour
 
     public void MostrarDica(string msg = null)
     {
-        if (msg == null)
+        if (msg != null)
         {
-            LeanTween.scaleY(dicas, 1.74f, 0.5f);
-            LeanTween.delayedCall(7f, () => { LeanTween.scaleY(dicas, 0, 0.5f); });
-            
+            return;
         }
+        LeanTween.scaleY(dicas, 1.74f, 0.5f);
+        LeanTween.delayedCall(7f, () => { LeanTween.scaleY(dicas, 0, 0.5f); });
     }
     public void botaovoutarmenuajuda()
     {
@@ -233,18 +234,23 @@ public class menu : MonoBehaviour
     }
     public void botaotextoadica()
     {
-            txtajuda.text = "voce pode se movimentar mantendo o dedo precionado na tela e consertar os brinquedos do gato com o butao 'consertar' no canto da tela.";
+            txtajuda.text = "Você pode se movimentar mantendo o dedo precionado na tela e consertar os brinquedos do gato com o botão 'consertar' no canto da tela.";
     }
     public void botaotextoadica1()
     {
-        txtajuda.text = "O gato vai querer usar seus brinquedos para se manter bem e e o seu papeu consertar esses item para mantelo seguro e bem dentro de casa, evitando a comtaminaçao da sporotricoze";
+        txtajuda.text = "O gato vai querer brincar, beber água e usar caixinha de areia e o seu papel consertar esses item para mantelo seguro. Se as necessidades do gato não forem supridas, ele pode fugir de casa e se contaminar com a esporotricose, principlamente brigando com gatos contaminados";
     }
     public void botaotextoadica2()
     {
-        txtajuda.text = "Apesar de tudo vc deve arrumar sua prapria casa, pois esta em plena mudansa.";
+        txtajuda.text = "Você está de mudança, construa os itens necessarios na sua casa para você, como sua cama, e também para o seu gato, como as telas de proteção nas janelas, para evitar que ele fuja e possa se expor à contaminação da esporotricose.";
     }
     public void botaotextoadica3()
     {
-        txtajuda.text = "A fase posue um taimer que mostrar o tempo que voce tem para comcluir suas atividades alem de uma breve dica de o que o gato pode estar precisando mostrado bela barra verde.";
+        txtajuda.text = "A jogo possui um relógio que mostrar o tempo que você tem até o fim da fase. Crie um ambiente confortável e seguro para seu gato, para que ele não saia de casa e não fique doente.";
     }
+    public void botaotextoadica4()
+    {
+        txtajuda.text = "A esporotricose é uma doença que seu gato pode pegar ao se contaminar com os esporos de um fungo. Ela se caracteriza por diversos sintomas, como feridas pelo corpo do gato. Tome cuidado, pois a doneça também pode contaminar humanos. Se perceber os sintomas, evite o contato com seu gato e comunique seu veterinário.";
+    }
+
 }

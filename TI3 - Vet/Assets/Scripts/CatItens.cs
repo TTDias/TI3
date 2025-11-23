@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class CatItens : InteractiveItem
 {
     private CatSoundMannager catSound;
-    public enum Item { food, post, toy, litterbox }
+    public enum Item { water, post, toy, litterbox }
     [SerializeField] Item type;
 
     public bool broken {get;set;}
@@ -53,7 +53,7 @@ public class CatItens : InteractiveItem
         }
         else if(other.tag == "Cat" && !broken)
         {
-            if (type == Item.food)
+            if (type == Item.water)
                 catSound.PlayEat();
 
             if (UIRepairScript.Instance.reparing)

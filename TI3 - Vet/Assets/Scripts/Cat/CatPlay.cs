@@ -6,7 +6,6 @@ public class CatPlay : MonoBehaviour
     public float waitTime;
     public float cooldown;
     public bool waiting;
-    public menu menu;
 
 
     float fightProb = 0;
@@ -62,10 +61,7 @@ public class CatPlay : MonoBehaviour
     {
         runaway ++;
         AnalyticsTest.Instance.AddAnalytics("Cat", "Runaway", runaway.ToString());
-        if(menu.dicas.transform.lossyScale.y == 0)
-        {
-            menu.MostrarDica();
-        }
+        
         if (fightProb <= Random.value)
         {
             GameManager.RunawayScoreDown();
