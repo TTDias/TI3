@@ -195,7 +195,7 @@ public class menu : MonoBehaviour
     {
         txtajudaJogo.text = msg;
         LeanTween.scaleY(dicas, 1.74f, 0.5f);
-        LeanTween.delayedCall(10f, () => { LeanTween.scaleY(dicas, 0, 0.5f); });
+        LeanTween.delayedCall(12f, () => { LeanTween.scaleY(dicas, 0, 0.5f); });
     }
     public void botaovoutarmenuajuda()
     {

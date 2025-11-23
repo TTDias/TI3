@@ -3626,7 +3626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedVersion: 1
   m_AgentTypeID: -1923039037
-  m_StartPoint: {x: 14.159996, y: 0.9175253, z: 11.1051035}
+  m_StartPoint: {x: 14.159995, y: 0.9175252, z: 12.118216}
   m_EndPoint: {x: 16.187672, y: -0.047359936, z: 11.022268}
   m_StartTransform: {fileID: 0}
   m_EndTransform: {fileID: 0}

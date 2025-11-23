@@ -54,16 +54,7 @@ public class CatMove : MonoBehaviour
     public void Runaway()
     {
         AnalyticsTest.Instance.AddAnalytics("Cat", "Runaway Item", trackingItem.name);
-        meshAgent.SetDestination(exitPoint.position);
-        running = true;
-    }
-
-    void RunAwayStart()
-    {
-        animator.SetTrigger("Jump");
-        LeanTween.delayedCall(0.7f, () => { meshAgent.SetDestination(exitPoint.position + new Vector3(1, 1, 0)); });  
-        LeanTween.delayedCall(1, () => { meshAgent.SetDestination(runawayPoint.position); });
-        //GetComponent<Animation>().Play("CatWindowJump");
+        
         string msg = "<b>Dicas do Veterinário</b>\r\n\r\n";
         if (menu.dicas.transform.lossyScale.y == 0)
         {
@@ -78,6 +69,17 @@ public class CatMove : MonoBehaviour
 
         }
         menu.MostrarDica(msg);
+
+        meshAgent.SetDestination(exitPoint.position);
+        running = true;
+    }
+
+    void RunAwayStart()
+    {
+        animator.SetTrigger("Jump");
+        LeanTween.delayedCall(0.7f, () => { meshAgent.SetDestination(exitPoint.position + new Vector3(1, 1, 0)); });  
+        LeanTween.delayedCall(1.5f, () => { meshAgent.SetDestination(runawayPoint.position); });
+        //GetComponent<Animation>().Play("CatWindowJump");
         LeanTween.delayedCall(sleepTime - 1, () => { meshAgent.SetDestination(exitPoint.position); Sleep(0.8f); });
     }
 }
