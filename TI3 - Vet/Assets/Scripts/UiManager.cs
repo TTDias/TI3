@@ -10,6 +10,7 @@ public class UiManager : MonoBehaviour
 
     ColorBlock colors;
     Color red;
+    Color yellow = new Color(255, 170, 0);
     void Start()
     {
         colors = stars.colors;

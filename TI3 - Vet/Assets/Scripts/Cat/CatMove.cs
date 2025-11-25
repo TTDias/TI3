@@ -35,11 +35,11 @@ public class CatMove : MonoBehaviour
             meshAgent.SetDestination(positions[index].position);
             trackingItem = positions[index].gameObject;
         }
-
+      
         if (running && meshAgent.isOnOffMeshLink)
         {
             running = false;
-            RunAwayStart();
+            Jump();
         }
         animator.SetFloat("Velocity", meshAgent.velocity.magnitude);
     }
@@ -54,7 +54,7 @@ public class CatMove : MonoBehaviour
     public void Runaway()
     {
         AnalyticsTest.Instance.AddAnalytics("Cat", "Runaway Item", trackingItem.name);
-        
+        meshAgent.autoTraverseOffMeshLink = false;
         string msg = "<b>Dicas do Veterinário</b>\r\n\r\n";
         if (menu.dicas.transform.lossyScale.y == 0)
         {
@@ -70,17 +70,31 @@ public class CatMove : MonoBehaviour
         }
         menu.MostrarDica(msg);
 
-        meshAgent.SetDestination(exitPoint.position);
+        meshAgent.SetDestination(runawayPoint.position);
         running = true;
     }
 
-    void RunAwayStart()
+    void Jump()
     {
-        
+        OffMeshLinkData data = meshAgent.currentOffMeshLinkData;
+
+        Vector3 end = data.endPos;
+
+        transform.rotation = Quaternion.LookRotation(end);
+
         animator.SetTrigger("Jump");
-        LeanTween.delayedCall(0.7f, () => { meshAgent.SetDestination(exitPoint.position + new Vector3(1, 1, 0)); });  
-        LeanTween.delayedCall(1.5f, () => { meshAgent.SetDestination(runawayPoint.position); });
-        //GetComponent<Animation>().Play("CatWindowJump");
+        LeanTween.delayedCall(0.46f, () => 
+        { 
+            LeanTween.moveLocal(gameObject,end, 0.5f); 
+        });  
+        LeanTween.delayedCall(1.5f, () => 
+        {
+            meshAgent.Warp(transform.position);
+            meshAgent.CompleteOffMeshLink();
+            meshAgent.autoTraverseOffMeshLink = true;  
+            meshAgent.SetDestination(runawayPoint.position); 
+        });
+
         LeanTween.delayedCall(sleepTime - 1, () => { meshAgent.SetDestination(exitPoint.position); Sleep(0.8f); });
     }
 }
