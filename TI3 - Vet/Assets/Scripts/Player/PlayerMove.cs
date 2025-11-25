@@ -6,6 +6,8 @@ using UnityEngine.Windows;
 
 public class PlayerMove : MonoBehaviour
 {
+    public InputAction click;
+
     public NavMeshAgent agent;
     bool isPressed;
     Vector2 position;
@@ -28,9 +30,9 @@ public class PlayerMove : MonoBehaviour
                 agent.SetDestination(hit.point);
             }
         }
-        else if (agent.hasPath)
+        else if (!isPressed)
         {
-            //agent.ResetPath();
+            agent.ResetPath();
             //anima.SetFloat("Blend", 0);
         }
 

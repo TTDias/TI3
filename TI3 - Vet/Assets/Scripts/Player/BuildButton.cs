@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BuildTimer : UIRepairScript
+public class BuildButton : UIRepairScript
 {
     public Image clock;
     public Button useButton;
@@ -37,7 +37,7 @@ public class BuildTimer : UIRepairScript
         
         Vector3 distance = player.transform.position - item.transform.position;
         
-        if (distance.magnitude < 1.65 && !reparing)
+        if (distance.magnitude < 1.9 && !reparing)
         {
             reparing = true;
             clock.enabled = true;
@@ -45,6 +45,7 @@ public class BuildTimer : UIRepairScript
             player.UseItem();
             player.transform.LookAt(item.transform);
             item.Use();
+            Deselect();
         }
         else if(!reparing)
         {
@@ -54,7 +55,9 @@ public class BuildTimer : UIRepairScript
 
     public override void Select(InteractiveItem item)
     {
-        if (!reparing)
+        Vector3 distance = player.transform.position - item.transform.position;
+
+        if (distance.magnitude < 1.9 && !reparing)
         {
             useButton.gameObject.SetActive(true);
             EventTrigger trigger = item.gameObject.GetComponentInChildren<EventTrigger>();
@@ -63,7 +66,6 @@ public class BuildTimer : UIRepairScript
             {
                 PointerEventData eventData = new PointerEventData(EventSystem.current);
                 trigger.OnPointerDown(eventData);
-                Deselect();
             });
         }
     }
