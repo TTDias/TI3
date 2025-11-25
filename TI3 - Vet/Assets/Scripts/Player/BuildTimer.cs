@@ -31,12 +31,22 @@ public class BuildTimer : UIRepairScript
 
     public void Activate(InteractiveItem item)
     {
-        if (!onRange) return;
-        reparing = true;
-        clock.enabled = true;
-        time = 3;
-        player.UseItem();
-        item.Use();
+        
+        Vector3 distance = player.transform.position - item.transform.position;
+        
+        if (distance.magnitude < 1.65 && !reparing)
+        {
+            reparing = true;
+            clock.enabled = true;
+            time = 3;
+            player.UseItem();
+            player.transform.LookAt(item.transform);
+            item.Use();
+        }
+        else if(!reparing)
+        {
+            player.agent.SetDestination(item.transform.position);
+        }
     }
 
     public override void Select(InteractiveItem item)

@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (agent.hasPath)
         {
-            agent.ResetPath();
+            //agent.ResetPath();
             //anima.SetFloat("Blend", 0);
         }
 

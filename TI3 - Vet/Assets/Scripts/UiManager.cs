@@ -6,6 +6,7 @@ public class UiManager : MonoBehaviour
     public Slider levelTime, catTolerance, stars;
     public CatPlay cat;
     public Transform pointer;
+    public Image catBar;
 
     ColorBlock colors;
     Color red;
@@ -62,5 +63,11 @@ public class UiManager : MonoBehaviour
         {
             catTolerance.value = catTolerance.maxValue;
         }
+        float val = catTolerance.value / catTolerance.maxValue;
+        if (val > 0.5)
+            catBar.color = Color.Lerp(Color.yellow, Color.green, (val-0.5f) * 2f);
+        else
+            catBar.color = Color.Lerp(Color.red, Color.yellow, (val * 2f));
+
     }
 }

@@ -76,6 +76,7 @@ public class CatMove : MonoBehaviour
 
     void RunAwayStart()
     {
+        //meshAgent.isOnOffMeshLink
         animator.SetTrigger("Jump");
         LeanTween.delayedCall(0.7f, () => { meshAgent.SetDestination(exitPoint.position + new Vector3(1, 1, 0)); });  
         LeanTween.delayedCall(1.5f, () => { meshAgent.SetDestination(runawayPoint.position); });
