@@ -1,21 +1,24 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class BuildTimer : UIRepairScript
 {
     public Image clock;
+    public Button useButton;
     float time;
-    bool onRange = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         clock.enabled = false;
+        useButton.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Camera.main.transform);
+        transform.forward = Camera.main.transform.forward;
+        
 
         if(time > 0 && reparing)
         {
@@ -51,11 +54,23 @@ public class BuildTimer : UIRepairScript
 
     public override void Select(InteractiveItem item)
     {
-        onRange = true;
+        if (!reparing)
+        {
+            useButton.gameObject.SetActive(true);
+            EventTrigger trigger = item.gameObject.GetComponentInChildren<EventTrigger>();
+        
+            useButton.onClick.AddListener(() =>
+            {
+                PointerEventData eventData = new PointerEventData(EventSystem.current);
+                trigger.OnPointerDown(eventData);
+                Deselect();
+            });
+        }
     }
 
     public override void Deselect()
     {
-        onRange = false;
+        useButton.gameObject.SetActive(false);
+        useButton.onClick.RemoveAllListeners();
     }
 }
