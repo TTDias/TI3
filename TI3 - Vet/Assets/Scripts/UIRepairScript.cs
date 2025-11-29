@@ -5,8 +5,8 @@ public class UIRepairScript : MonoBehaviour
 {
     public static UIRepairScript Instance;
     public Button btn;
+    protected InteractiveItem obj;
     public Image loadBar;
-    InteractiveItem obj;
     public bool reparing = false;
 
     public PlayerMove player;
@@ -21,7 +21,7 @@ public class UIRepairScript : MonoBehaviour
         btn.interactable = false;
     }
 
-    public void Select(InteractiveItem item)
+    public virtual void Select(InteractiveItem item)
     {
         if(obj != null)
         {
@@ -34,7 +34,7 @@ public class UIRepairScript : MonoBehaviour
         btn.onClick.AddListener( ButtonLoad );
     }
 
-    public void Deselect()
+    public virtual void Deselect()
     {
         btn.onClick.RemoveAllListeners();
         obj.Unfocus();

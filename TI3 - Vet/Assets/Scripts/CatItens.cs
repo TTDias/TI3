@@ -34,6 +34,7 @@ public class CatItens : InteractiveItem
         broked.SetActive(false);
         repaired.SetActive(true);
         broken = false;
+        GameManager.RepairScoreUp();
 
         repairSum++;
         AnalyticsTest.Instance.AddAnalytics(type.ToString(), "Repaired Itens", repairSum.ToString());
@@ -75,6 +76,10 @@ public class CatItens : InteractiveItem
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.tag == "Player" && broken)
+        {
+            Focus();
+        }
         if (other.tag == "Cat" && !broken && UIRepairScript.Instance.reparing && trigger)
         {
             trigger = false;
@@ -92,8 +97,9 @@ public class CatItens : InteractiveItem
         if(other.tag == "Player")
         {
             UIRepairScript.Instance.Deselect();
+            Unfocus();
         }
     }
 
-
+    
 }
