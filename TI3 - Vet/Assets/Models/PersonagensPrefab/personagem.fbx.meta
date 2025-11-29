@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 564a55658ce06194a9d85628fd71b09f
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
@@ -175,6 +175,123 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "Armature|bra\xE7o para frente"
+      takeName: "Armature|bra\xE7o para frente"
+      internalID: -1934952884754840135
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/master
+        weight: 1
+      - path: Armature/master/comtroladorclavicula.L
+        weight: 1
+      - path: Armature/master/comtroladorclavicula.L/ikbraco.L
+        weight: 1
+      - path: Armature/master/comtroladorclavicula.L/ikbraco.L/comtroladorcotovelo.L
+        weight: 1
+      - path: Armature/master/comtroladorclavicula.L/ikbraco.L/comtroladorcotovelo.L/comtroladorcotovelo.L_end
+        weight: 1
+      - path: Armature/master/comtroladorclavicula.R
+        weight: 1
+      - path: Armature/master/comtroladorclavicula.R/ikbraco.R
+        weight: 1
+      - path: Armature/master/comtroladorclavicula.R/ikbraco.R/comtroladorcotovelo.R
+        weight: 1
+      - path: Armature/master/comtroladorclavicula.R/ikbraco.R/comtroladorcotovelo.R/comtroladorcotovelo.R_end
+        weight: 1
+      - path: Armature/master/comtroladorperna.L
+        weight: 0
+      - path: Armature/master/comtroladorperna.L/comtroladorjoenho.L
+        weight: 0
+      - path: Armature/master/comtroladorperna.L/comtroladorjoenho.L/comtroladorjoenho.L_end
+        weight: 0
+      - path: Armature/master/comtroladorperna.R
+        weight: 0
+      - path: Armature/master/comtroladorperna.R/controladorjoelho.R
+        weight: 0
+      - path: Armature/master/comtroladorperna.R/controladorjoelho.R/controladorjoelho.R_end
+        weight: 0
+      - path: Armature/master/meio
+        weight: 1
+      - path: Armature/master/meio/cintura
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.L
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.L/canela.L
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.L/canela.L/pe.L
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.L/canela.L/pe.L/pontape.L
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.L/canela.L/pe.L/pontape.L/pontape.L_end
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.R
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.R/canela.R
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.R/canela.R/pe.R
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.R/canela.R/pe.R/pontape.R
+        weight: 0
+      - path: Armature/master/meio/cintura/coxa.R/canela.R/pe.R/pontape.R/pontape.R_end
+        weight: 0
+      - path: Armature/master/meio/colunabaixo
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/cintura.005
+        weight: 0
+      - path: Armature/master/meio/colunabaixo/colunacima/cintura.005/cintura.005_end
+        weight: 0
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.L
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.L/braco.L
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.L/braco.L/cotovelo.L
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.L/braco.L/cotovelo.L/antebraco.L
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.L/braco.L/cotovelo.L/antebraco.L/antebraco.L_end
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.R
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.R/braco.R
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.R/braco.R/cotovelo.R
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.R/braco.R/cotovelo.R/antebraco.R
+        weight: 1
+      - path: Armature/master/meio/colunabaixo/colunacima/clavicula.R/braco.R/cotovelo.R/antebraco.R/antebraco.R_end
+        weight: 1
+      - path: personagemmoude.001
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 865e720a3e6d2bd4eadc1b83889980ec, type: 2}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -201,6 +318,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
