@@ -80,15 +80,17 @@ public class CatItens : InteractiveItem
         {
             Focus();
         }
-        if (other.tag == "Cat" && !broken && UIRepairScript.Instance.reparing && trigger)
+        if (other.tag == "Cat" && !broken && !other.GetComponent<CatMove>().running)
         {
-            trigger = false;
-            other.GetComponent<CatPlay>().Cancel();
-            LeanTween.delayedCall(3f, () => {
-                trigger = true; 
-                other.GetComponent<CatPlay>().Play(this);
-            });
-            
+            if (UIRepairScript.Instance.reparing && trigger)
+            {
+                trigger = false;
+                other.GetComponent<CatPlay>().Cancel();
+                LeanTween.delayedCall(3f, () => {
+                    trigger = true;
+                    other.GetComponent<CatPlay>().Play(this);
+                });
+            }
         }
     }
 

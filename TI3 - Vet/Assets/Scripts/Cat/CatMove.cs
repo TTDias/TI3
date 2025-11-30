@@ -10,7 +10,8 @@ public class CatMove : MonoBehaviour
 
     public float sleepTime;
     float sleepCooldown;
-    bool sleeping, running;
+    bool sleeping; 
+    public bool running { get; private set }
 
     GameObject trackingItem;
     public Animator animator;
