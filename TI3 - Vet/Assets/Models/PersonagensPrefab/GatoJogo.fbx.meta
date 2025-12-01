@@ -1,9 +1,49 @@
 fileFormatVersion: 2
 guid: a462d132807e5b241b3d2bf424e2d2f3
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AmareloColeira
+    second: {fileID: 2100000, guid: 21cd4873160ff2647aa9dc18f73ac071, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Azul
+    second: {fileID: 2100000, guid: f7bc518c2efb1104991bf3cb4d58b25c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BrancoDente
+    second: {fileID: 2100000, guid: 4432502d2f7f6d74b9d7f07df2d6f5f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CinzaDetalhesPelo
+    second: {fileID: 2100000, guid: a877e896d20840f4d9080b29d1f8f630, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GatoBlusaMaterial
+    second: {fileID: 2100000, guid: facef6ebd8bfd2041af7c4efb56870e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GatoMangasMaterial
+    second: {fileID: 2100000, guid: 06c89d2a2e08b7f45bcf588125c6692c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RosaOrelhas
+    second: {fileID: 2100000, guid: e3ea99ba5605a87418cf51b1ec1399dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pelogato
+    second: {fileID: 2100000, guid: c2bab318d236ea0439ac8f41a9c86bdc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -172,6 +212,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

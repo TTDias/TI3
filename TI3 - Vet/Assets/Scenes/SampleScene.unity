@@ -119,32 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &15727714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1582072560094804824, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-  m_PrefabInstance: {fileID: 2220906839013690727}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &15727718
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 15727714}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.30161965, y: 0, z: 0.14560954}
-  m_Center: {x: 0.014260916, y: 0.000000009313226, z: -0.0088683935}
 --- !u!1 &32262761
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,27 +255,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &70780951 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4630774401990137828, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-  m_PrefabInstance: {fileID: 2220906839013690727}
-  m_PrefabAsset: {fileID: 0}
---- !u!208 &70780955
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 70780951}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.008, y: 0.0050000004, z: 0.010000001}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: -0.001, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &111189572
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,32 +783,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!1 &290502360 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3729069502355230376, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-  m_PrefabInstance: {fileID: 2220906839013690727}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &290502364
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290502360}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.012, y: 0.012820787, z: 0.04}
-  m_Center: {x: 0, y: -0.004237288, z: 0.006}
 --- !u!1001 &313590583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1897,18 +1824,6 @@ PrefabInstance:
     - target: {fileID: 8249865420348473208, guid: e2b9c738be6c4ed48ac82c767cec8002, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8298236015713258446, guid: e2b9c738be6c4ed48ac82c767cec8002, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8298236015713258446, guid: e2b9c738be6c4ed48ac82c767cec8002, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8298236015713258446, guid: e2b9c738be6c4ed48ac82c767cec8002, type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8298236015713258446, guid: e2b9c738be6c4ed48ac82c767cec8002, type: 3}
       propertyPath: m_Color.b
@@ -3757,7 +3672,7 @@ Transform:
   m_GameObject: {fileID: 1294261441}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0033097938, y: 0.009418176, z: -0.0010341436, w: 0.99994963}
-  m_LocalPosition: {x: -0.23, y: 0.59, z: 0.51}
+  m_LocalPosition: {x: -0.23, y: 0.54, z: 0.51}
   m_LocalScale: {x: 94.07644, y: 1, z: 94.07644}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5327,22 +5242,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1379441315906143265, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.01581
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610607400513502796, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5052224801756362135, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7812846521813039770, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0439
-      objectReference: {fileID: 0}
     - target: {fileID: 8769213577249879469, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.33
@@ -5387,23 +5286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene
       objectReference: {fileID: 0}
-    - target: {fileID: 9176828260726907461, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1582072560094804824, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 15727718}
-    - targetCorrespondingSourceObject: {fileID: 3729069502355230376, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 290502364}
-    - targetCorrespondingSourceObject: {fileID: 4630774401990137828, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 70780955}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a515884350d39c4080a65c01b0cd036, type: 3}
 --- !u!4 &2719557673288221148
 Transform:
