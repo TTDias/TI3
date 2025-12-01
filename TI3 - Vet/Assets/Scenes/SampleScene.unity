@@ -5190,9 +5190,21 @@ PrefabInstance:
       propertyPath: ground.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 2814321622724363319, guid: dd4f3f150e4a8184298dc08da056d100, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8704323818838916278, guid: c07f6d7fe3f53a744a333b4dd6c5c71c, type: 3}
+    - target: {fileID: 2814321622724363319, guid: dd4f3f150e4a8184298dc08da056d100, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2467bc56b43c70d42a8f9b32c00e8921, type: 2}
     - target: {fileID: 6460120651081824255, guid: dd4f3f150e4a8184298dc08da056d100, type: 3}
       propertyPath: m_Name
       value: PlayerFinalVariant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184963103185287516, guid: dd4f3f150e4a8184298dc08da056d100, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9163086068303394269, guid: dd4f3f150e4a8184298dc08da056d100, type: 3}
       propertyPath: player
