@@ -8,7 +8,7 @@ public abstract class InteractiveItem : MonoBehaviour
 
     public void Focus()
     {
-        UIRepairScript.Instance.Select(this);
+        BuildButton.Instance.Select(this);
         highlight.OutlineColor = Color.white;
     }
 

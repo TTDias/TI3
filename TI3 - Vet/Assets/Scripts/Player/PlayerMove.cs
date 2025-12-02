@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour
     {
         anima.SetFloat("Blend", agent.velocity.magnitude);
         if (gameObject.name == "PlayerFinalVariant")
-            if (UIRepairScript.Instance.reparing == true) return;
+            if (BuildButton.Instance.reparing == true) return;
 
         if (isPressed && !IsPointerOverUI())
         {
@@ -65,7 +65,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Build(bool val)
     {
-        anima.SetBool("Build", val);
+        anima.SetBool("Building", val);
     }
         
     bool IsPointerOverUI()

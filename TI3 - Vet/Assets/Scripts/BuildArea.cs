@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BuildArea : MonoBehaviour
+public class BuildArea : InteractiveItem
 {
     public GameObject area;
     public GameObject obj;
@@ -42,7 +42,7 @@ public class BuildArea : MonoBehaviour
         box.transform.localPosition = Vector3.zero;
         box.tag = "Untagged";
         boxConstruct = box;
-        BuildAnim();
+        //BuildAnim();
     }
 
     public void BuildStop()
@@ -51,7 +51,7 @@ public class BuildArea : MonoBehaviour
         LeanTween.cancel(boxConstruct);
     }
 
-    public void BuildAnim()
+    public override void Use()
     {
         LeanTween.init();
         LeanTween.scale(boxConstruct, Vector3.one * 100, 0);

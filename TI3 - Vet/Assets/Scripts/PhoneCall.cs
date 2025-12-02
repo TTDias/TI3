@@ -47,7 +47,7 @@ public class PhoneCall : InteractiveItem
     {
         if (other.tag == "Player")
         {
-            UIRepairScript.Instance.Deselect();
+            BuildButton.Instance.Deselect();
         }
     }
 }

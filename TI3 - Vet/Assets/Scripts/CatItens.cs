@@ -20,7 +20,7 @@ public class CatItens : InteractiveItem
         broken = true;
         repairSum = 0;
         highlight = GetComponent<Outline>();
-        catSound = FindObjectOfType<CatSoundMannager>();
+        catSound = FindFirstObjectByType<CatSoundMannager>();
     }
 
     public void Broke()
@@ -57,7 +57,7 @@ public class CatItens : InteractiveItem
             if (type == Item.water)
                 catSound.PlayEat();
 
-            if (UIRepairScript.Instance.reparing)
+            if (BuildButton.Instance.reparing)
             {
                 LeanTween.delayedCall(3f, () => {
                     other.GetComponent<CatPlay>().Play(this);
@@ -82,7 +82,7 @@ public class CatItens : InteractiveItem
         }
         if (other.tag == "Cat" && !broken && !other.GetComponent<CatMove>().running)
         {
-            if (UIRepairScript.Instance.reparing && trigger)
+            if (BuildButton.Instance.reparing && trigger)
             {
                 trigger = false;
                 other.GetComponent<CatPlay>().Cancel();
@@ -98,7 +98,7 @@ public class CatItens : InteractiveItem
     {
         if(other.tag == "Player")
         {
-            UIRepairScript.Instance.Deselect();
+            BuildButton.Instance.Deselect();
             Unfocus();
         }
     }

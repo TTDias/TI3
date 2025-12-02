@@ -36,7 +36,7 @@ public class AnalyticsTest : MonoBehaviour
         f.data = data.ToArray();
         string json = JsonUtility.ToJson(f, true);
         SaveFile(json);
-        SendEmail(json);
+        //SendEmail(json);
     }
 
     void SaveFile(string text) 

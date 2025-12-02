@@ -13,11 +13,7 @@ public class PlayerPickup : MonoBehaviour
         GameObject obj = collision.gameObject;
         if (obj.tag == "Box" && !carrying)
         {
-            obj.transform.parent = pickup;
-            obj.transform.localPosition = Vector3.zero;
-            carrying = true;
-            PlayerSoundMannager.Instance.PlayPop();
-            PickupBox?.Invoke();
+            BoxPickup(obj);
         }
         
     }
@@ -29,14 +25,12 @@ public class PlayerPickup : MonoBehaviour
             BuildArea area = other.GetComponent<BuildArea>();
             if (carrying && !area.obj.activeSelf && area.boxConstruct == null)
             {
-                carrying = false;
-                PlayerSoundMannager.Instance.PlayPop();
-                PlaceBox?.Invoke();
-                area.BuildStart(pickup.GetChild(0).gameObject);
+                BoxPlace(area);
+                ConstructRange(area);
             }
             else if (area.boxConstruct != null)
             {
-                area.BuildAnim();
+                ConstructRange(area);
             }
         }
     }
@@ -48,9 +42,37 @@ public class PlayerPickup : MonoBehaviour
             BuildArea area = other.GetComponent<BuildArea>();
             if (area.boxConstruct != null)
             {
-                area.BuildStop();
+                BuildButton.Instance.Deselect();
             }
         }
+    }
+
+    void BoxPickup(GameObject obj)
+    {
+        obj.transform.parent = pickup;
+        obj.transform.localPosition = Vector3.zero;
+        carrying = true;
+        GetComponent<PlayerMove>().anima.SetLayerWeight(1, 1);
+        PlayerSoundMannager.Instance.PlayPop();
+        PickupBox?.Invoke();
+    }
+
+    void BoxPlace(BuildArea area)
+    {
+        carrying = false;
+        PlayerSoundMannager.Instance.PlayPop();
+        PlaceBox?.Invoke();
+        area.BuildStart(pickup.GetChild(0).gameObject);
+        GetComponent<PlayerMove>().anima.SetLayerWeight(1, 0);
+    }
+
+    void ConstructRange(BuildArea area)
+    {
+        BuildButton.Instance.useButton.gameObject.SetActive(true);
+        BuildButton.Instance.useButton.onClick.AddListener(() =>
+        {
+            BuildButton.Instance.InitBuild(area);
+        });
     }
 
     public static void DisableActions()

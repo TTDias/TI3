@@ -2,12 +2,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BuildButton : UIRepairScript
+public class BuildButton : MonoBehaviour
 {
     public Image clock;
     public Button useButton;
+    public PlayerMove player;
+
+    public static BuildButton Instance;
+
     float time;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool reparing = false;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         clock.enabled = false;
@@ -29,6 +38,7 @@ public class BuildButton : UIRepairScript
         {
             clock.enabled = false;
             reparing = false;
+            player.Build(false);
         }
     }
 
@@ -53,7 +63,18 @@ public class BuildButton : UIRepairScript
         }
     }
 
-    public override void Select(InteractiveItem item)
+    public void InitBuild(BuildArea area)
+    {
+        reparing = true;
+        clock.enabled = true;
+        time = 1.95f;
+        player.Build(true);
+        player.transform.LookAt(area.transform);
+        area.Use();
+        Deselect();
+    }
+
+    public void Select(InteractiveItem item)
     {
         Vector3 distance = player.transform.position - item.transform.position;
 
@@ -70,7 +91,7 @@ public class BuildButton : UIRepairScript
         }
     }
 
-    public override void Deselect()
+    public void Deselect()
     {
         useButton.gameObject.SetActive(false);
         useButton.onClick.RemoveAllListeners();
