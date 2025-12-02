@@ -1181,6 +1181,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &462992371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4359806308943158641, guid: dd4f3f150e4a8184298dc08da056d100, type: 3}
+  m_PrefabInstance: {fileID: 958137160459414058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &602901522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +1878,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1473070071}
+    - target: {fileID: 6801297860188478678, guid: e2b9c738be6c4ed48ac82c767cec8002, type: 3}
+      propertyPath: botaoclicado
+      value: 
+      objectReference: {fileID: 462992371}
     - target: {fileID: 6801297860188478678, guid: e2b9c738be6c4ed48ac82c767cec8002, type: 3}
       propertyPath: tutorialfala
       value: 

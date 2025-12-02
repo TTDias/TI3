@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,12 +6,13 @@ using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
-    public GameObject dicas, sairPopup, canvasdicatxt, tutorialfala, player;
+    public GameObject dicas, sairPopup, canvasdicatxt, tutorialfala, player, botaoclicado;
     public Image imageF;
     public Text txtajuda, txtajudaJogo, falas;
     public GameObject[] obj, slaider, pause;
     float t = 0;
     int contafalas = 0;
+    bool chegou = false;
     static int plays = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,8 +46,12 @@ public class menu : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "tutorial")
         {
+            Debug.Log(contafalas);
             LeanTween.init();
-            LeanTween.move(player, new Vector3(4.659472f, 0.6474005f, 4.825624f), 0.5f);
+            if (!chegou)
+            {
+                LeanTween.move(player, new Vector3(4.659472f, 0.6474005f, 4.825624f), 0.5f).setOnComplete(()=>chegou = true);
+            }
             LeanTween.scale(tutorialfala,new Vector3(1, 1, 1), 0.5f);
             if (contafalas == 0)
             {
@@ -53,11 +59,19 @@ public class menu : MonoBehaviour
             }
             else if (contafalas == 1)
             {
-                falas.text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+                falas.text = "Lenbrese voce pode andar pela casa segurando o dedo ou segurando o clik do mouse para poder andar ate o local desejado.";
+                if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    botaopasarfala();
+                }
             }
             else if (contafalas == 2)
             {
-                falas.text = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
+                falas.text = "Seu gatinho e bem nervosinho ne senpre gasta seu brinquedos no primeiro uso lenbrese de consertalos ao chegar perto de um e clicar no botao 'usar' emcima de voce filha.";
+                if(botaoclicado.activeSelf)
+                {
+                    botaopasarfala();
+                }
             }
             else if (contafalas == 3)
             {
@@ -75,7 +89,7 @@ public class menu : MonoBehaviour
             {
                 SceneManager.LoadScene("menuinicial");
             }
-
+            
         }
     }
     public void botaojogar()
