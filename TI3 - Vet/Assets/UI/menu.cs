@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
-    public GameObject dicas, sairPopup, canvasdicatxt;
+    public GameObject dicas, sairPopup, canvasdicatxt, tutorialfala, player;
     public Image imageF;
-    public Text txtajuda, txtajudaJogo;
+    public Text txtajuda, txtajudaJogo, falas;
     public GameObject[] obj, slaider, pause;
     float t = 0;
-
+    int contafalas = 0;
     static int plays = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,7 +42,41 @@ public class menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "tutorial")
+        {
+            LeanTween.init();
+            LeanTween.move(player, new Vector3(4.659472f, 0.6474005f, 4.825624f), 0.5f);
+            LeanTween.scale(tutorialfala,new Vector3(1, 1, 1), 0.5f);
+            if (contafalas == 0)
+            {
+                falas.text = "ola minha filha como esta o gatinho do visinho, ainda esta com aquela doença.";
+            }
+            else if (contafalas == 1)
+            {
+                falas.text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            }
+            else if (contafalas == 2)
+            {
+                falas.text = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
+            }
+            else if (contafalas == 3)
+            {
+                falas.text = "ccccccccccccccccccccccccccccccccccccc";
+            }
+            else if (contafalas == 4)
+            {
+                falas.text = "ddddddddddddddddddddddddddddddddddddddddddd";
+            }
+            else if (contafalas == 5)
+            {
+                falas.text = "ffffffffffffffffffffffffffffffffffffffffffffffff";
+            }
+            else
+            {
+                SceneManager.LoadScene("menuinicial");
+            }
 
+        }
     }
     public void botaojogar()
     {
@@ -249,5 +283,8 @@ public class menu : MonoBehaviour
     {
         txtajuda.text = "A esporotricose é uma doença que seu gato pode pegar ao se contaminar com os esporos de um fungo. Ela se caracteriza por diversos sintomas, como feridas pelo corpo do gato. Tome cuidado, pois a doença também pode contaminar humanos. Se perceber os sintomas, evite o contato com seu gato e comunique seu veterinário.";
     }
-
+    public void botaopasarfala()
+    {
+        contafalas += 1;
+    }
 }
