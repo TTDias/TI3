@@ -10,7 +10,7 @@ public class BuildButton : MonoBehaviour
 
     public static BuildButton Instance;
 
-    float time;
+    float time, maxtime;
     public bool reparing = false;
 
     private void Awake()
@@ -32,7 +32,7 @@ public class BuildButton : MonoBehaviour
         if(time > 0 && reparing)
         {
             time -= Time.deltaTime;
-            clock.fillAmount = (3f - time) / 3f;
+            clock.fillAmount = (maxtime - time) / maxtime;
         }
         if(time <= 0 && reparing)
         {
@@ -52,6 +52,7 @@ public class BuildButton : MonoBehaviour
             reparing = true;
             clock.enabled = true;
             time = 3;
+            maxtime = time;
             player.UseItem();
             player.transform.LookAt(item.transform);
             item.Use();
@@ -67,7 +68,8 @@ public class BuildButton : MonoBehaviour
     {
         reparing = true;
         clock.enabled = true;
-        time = 1.95f;
+        time = 3f;
+        maxtime = time;
         player.Build(true);
         player.transform.LookAt(area.transform);
         area.Use();
