@@ -9,7 +9,7 @@ public class menu : MonoBehaviour
     public GameObject dicas, sairPopup, canvasdicatxt, tutorialfala, player, botaoclicado;
     public Image imageF;
     public Text txtajuda, txtajudaJogo, falas;
-    public GameObject[] obj, slaider, pause;
+    public GameObject[] obj, slaider, pause, mudanças;
     float t = 0;
     int contafalas = 0;
     bool chegou = false;
@@ -67,7 +67,7 @@ public class menu : MonoBehaviour
             }
             else if (contafalas == 2)
             {
-                falas.text = "Seu gatinho e bem nervosinho ne senpre gasta seu brinquedos no primeiro uso lenbrese de consertalos ao chegar perto de um e clicar no botao 'usar' emcima de voce filha.";
+                falas.text = "Seu gatinho e bem nervosinho ne senpre gasta seu brinquedos no primeiro uso lenbrese de consertalos, ao chegar perto de um brinquedo e so clicar no botao 'usar' emcima de voce filha.";
                 if(botaoclicado.activeSelf)
                 {
                     botaopasarfala();
@@ -75,15 +75,18 @@ public class menu : MonoBehaviour
             }
             else if (contafalas == 3)
             {
-                falas.text = "ccccccccccccccccccccccccccccccccccccc";
+                falas.text = "Sua mudança ja deve estar chegando essa enpresa senpre deixa uma caixa no jardin, nao deixe de arrmar sua casa menina, principalmente as janelas tenho certeza que cera bem recompensado por isso, para colocar a mudança e so chegar perto de umas das areas brancas e apertar o mesmo botao 'usar'.";
+                foreach(GameObject g in mudanças)
+                {
+                    if (g.activeSelf)
+                    {
+                        botaopasarfala();
+                    }
+                }
             }
             else if (contafalas == 4)
             {
-                falas.text = "ddddddddddddddddddddddddddddddddddddddddddd";
-            }
-            else if (contafalas == 5)
-            {
-                falas.text = "ffffffffffffffffffffffffffffffffffffffffffffffff";
+                falas.text = "Espero que tenha entendido tudo em filha e tenho certeza que tudo dara certo, quando for te visitar espera te dar 3 estrelinhas em hahahaha.";
             }
             else
             {
