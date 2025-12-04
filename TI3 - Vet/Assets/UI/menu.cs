@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
-    public GameObject dicas, sairPopup, canvasdicatxt, tutorialfala, player, botaoclicado;
+    public GameObject dicas, sairPopup, canvasdicatxt, tutorialfala, player, botaoclicado, avatarvelho, avatarveterinario;
     public Image imageF;
     public Text txtajuda, txtajudaJogo, falas;
     public GameObject[] obj, slaider, pause, mudanças;
@@ -60,7 +60,7 @@ public class menu : MonoBehaviour
             else if (contafalas == 1)
             {
                 falas.text = "Lenbrese voce pode andar pela casa segurando o dedo ou segurando o clik do mouse para poder andar ate o local desejado.";
-                if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
+                if (player.GetComponent<PlayerMove>().IsPressedparatutorial())
                 {
                     botaopasarfala();
                 }
@@ -86,7 +86,22 @@ public class menu : MonoBehaviour
             }
             else if (contafalas == 4)
             {
-                falas.text = "Espero que tenha entendido tudo em filha e tenho certeza que tudo dara certo, quando for te visitar espera te dar 3 estrelinhas em hahahaha.";
+                falas.text = "lenbrese do que seu veterinario disse";
+            }
+            else if (contafalas == 5)
+            {
+                LeanTween.scale(avatarvelho, Vector3.zero, 0.5f).setOnComplete(() =>
+                {
+                    LeanTween.scale(avatarveterinario, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "'lenbrese sempre das minhas anatosoes, mas qualquercoisa e so me ligar tenho certesa qque vou ajudar com o gatinho.'"; });
+                });
+                
+            }
+            else if (contafalas == 6)
+            {
+                LeanTween.scale(avatarveterinario, Vector3.zero, 0.5f).setOnComplete(() =>
+                {
+                    LeanTween.scale(avatarvelho, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "Espero que tenha entendido tudo em filha e tenho certeza que tudo dara certo, quando for te visitar espera te dar 3 estrelinhas em hahahaha."; ; });
+                });
             }
             else
             {

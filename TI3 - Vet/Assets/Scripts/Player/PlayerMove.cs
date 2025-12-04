@@ -67,6 +67,10 @@ public class PlayerMove : MonoBehaviour
     {
         anima.SetBool("Build", val);
     }
+    public bool IsPressedparatutorial()
+    {
+        return isPressed; 
+    }
         
     bool IsPointerOverUI()
     {
