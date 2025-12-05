@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,12 +6,13 @@ using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
-    public GameObject dicas, sairPopup, canvasdicatxt;
+    public GameObject dicas, sairPopup, canvasdicatxt, tutorialfala, player, botaoclicado, avatarvelho, avatarveterinario;
     public Image imageF;
-    public Text txtajuda, txtajudaJogo;
-    public GameObject[] obj, slaider, pause;
+    public Text txtajuda, txtajudaJogo, falas;
+    public GameObject[] obj, slaider, pause, mudanças;
     float t = 0;
-
+    int contafalas = 0;
+    bool chegou = false;
     static int plays = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,7 +44,71 @@ public class menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(SceneManager.GetActiveScene().name == "tutorial")
+        {
+            Debug.Log(contafalas);
+            LeanTween.init();
+            if (!chegou)
+            {
+                LeanTween.move(player, new Vector3(4.659472f, 0.6474005f, 4.825624f), 0.5f).setOnComplete(()=>chegou = true);
+            }
+            LeanTween.scale(tutorialfala,new Vector3(1, 1, 1), 0.5f);
+            if (contafalas == 0)
+            {
+                falas.text = "ola minha filha como esta o gatinho do visinho, ainda esta com aquela doença.";
+            }
+            else if (contafalas == 1)
+            {
+                falas.text = "Lenbrese voce pode andar pela casa segurando o dedo ou segurando o clik do mouse para poder andar ate o local desejado.";
+                if (player.GetComponent<PlayerMove>().IsPressedparatutorial())
+                {
+                    botaopasarfala();
+                }
+            }
+            else if (contafalas == 2)
+            {
+                falas.text = "Seu gatinho e bem nervosinho ne senpre gasta seu brinquedos no primeiro uso lenbrese de consertalos, ao chegar perto de um brinquedo e so clicar no botao 'usar' emcima de voce filha.";
+                if(botaoclicado.activeSelf)
+                {
+                    botaopasarfala();
+                }
+            }
+            else if (contafalas == 3)
+            {
+                falas.text = "Sua mudança ja deve estar chegando essa enpresa senpre deixa uma caixa no jardin, nao deixe de arrmar sua casa menina, principalmente as janelas tenho certeza que cera bem recompensado por isso, para colocar a mudança e so chegar perto de umas das areas brancas e apertar o mesmo botao 'usar'.";
+                foreach(GameObject g in mudanças)
+                {
+                    if (g.activeSelf)
+                    {
+                        botaopasarfala();
+                    }
+                }
+            }
+            else if (contafalas == 4)
+            {
+                falas.text = "lenbrese do que seu veterinario disse";
+            }
+            else if (contafalas == 5)
+            {
+                LeanTween.scale(avatarvelho, Vector3.zero, 0.5f).setOnComplete(() =>
+                {
+                    LeanTween.scale(avatarveterinario, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "'lenbrese sempre das minhas anatosoes, mas qualquercoisa e so me ligar tenho certesa qque vou ajudar com o gatinho.'"; });
+                });
+                
+            }
+            else if (contafalas == 6)
+            {
+                LeanTween.scale(avatarveterinario, Vector3.zero, 0.5f).setOnComplete(() =>
+                {
+                    LeanTween.scale(avatarvelho, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "Espero que tenha entendido tudo em filha e tenho certeza que tudo dara certo, quando for te visitar espera te dar 3 estrelinhas em hahahaha."; ; });
+                });
+            }
+            else
+            {
+                SceneManager.LoadScene("menuinicial");
+            }
+            
+        }
     }
     public void botaojogar()
     {
@@ -249,5 +315,8 @@ public class menu : MonoBehaviour
     {
         txtajuda.text = "A esporotricose é uma doença que seu gato pode pegar ao se contaminar com os esporos de um fungo. Ela se caracteriza por diversos sintomas, como feridas pelo corpo do gato. Tome cuidado, pois a doença também pode contaminar humanos. Se perceber os sintomas, evite o contato com seu gato e comunique seu veterinário.";
     }
-
+    public void botaopasarfala()
+    {
+        contafalas += 1;
+    }
 }
