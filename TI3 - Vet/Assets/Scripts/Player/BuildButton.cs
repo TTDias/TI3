@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -78,20 +79,40 @@ public class BuildButton : MonoBehaviour
 
     public void Select(InteractiveItem item)
     {
-        Vector3 distance = player.transform.position - item.transform.position;
-
-        if (distance.magnitude < 1.9 && !reparing)
+        if (GameManager.Statustutorial())
         {
-            useButton.gameObject.SetActive(true);
-            EventTrigger trigger = item.gameObject.GetComponentInChildren<EventTrigger>();
-        
-            useButton.onClick.AddListener(() =>
+            Vector3 distance = player.transform.position - item.transform.position;
+
+            if (distance.magnitude < 1.9 && !reparing && (item.name == "Phone" || GameManager.StatusPhone()))
             {
-                PointerEventData eventData = new PointerEventData(EventSystem.current);
-                trigger.OnPointerDown(eventData);
-            });
+                useButton.gameObject.SetActive(true);
+                EventTrigger trigger = item.gameObject.GetComponentInChildren<EventTrigger>();
+
+                useButton.onClick.AddListener(() =>
+                {
+                    PointerEventData eventData = new PointerEventData(EventSystem.current);
+                    trigger.OnPointerDown(eventData);
+                });
+            }
+        }
+        else
+        {
+            Vector3 distance = player.transform.position - item.transform.position;
+
+            if (distance.magnitude < 1.9 && !reparing)
+            {
+                useButton.gameObject.SetActive(true);
+                EventTrigger trigger = item.gameObject.GetComponentInChildren<EventTrigger>();
+
+                useButton.onClick.AddListener(() =>
+                {
+                    PointerEventData eventData = new PointerEventData(EventSystem.current);
+                    trigger.OnPointerDown(eventData);
+                });
+            }
         }
     }
+
 
     public void Deselect()
     {

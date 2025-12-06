@@ -21,7 +21,10 @@ public class GameManager:MonoBehaviour
     void Update()
     {
         if (timer <= 0f) GameEnd();
-        else timer -= Time.deltaTime;
+        else if (!tutorial)
+        {
+            timer -= Time.deltaTime;
+        }
     }
 
     static public void RepairScoreUp()

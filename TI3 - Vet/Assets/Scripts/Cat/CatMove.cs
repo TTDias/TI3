@@ -26,23 +26,25 @@ public class CatMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (sleepCooldown > 0f)
-            sleepCooldown -= Time.deltaTime;
-        if (sleepCooldown <= 0 && sleeping)
+        if (!GameManager.Statustutorial())
         {
-            sleeping = false;
-            int index = Random.Range(0, positions.Length);
-            meshAgent.SetDestination(positions[index].position);
-            trackingItem = positions[index].gameObject;
+            if (sleepCooldown > 0f)
+                sleepCooldown -= Time.deltaTime;
+            if (sleepCooldown <= 0 && sleeping)
+            {
+                sleeping = false;
+                int index = Random.Range(0, positions.Length);
+                meshAgent.SetDestination(positions[index].position);
+                trackingItem = positions[index].gameObject;
+            }
+
+            if (running && meshAgent.isOnOffMeshLink)
+            {
+                running = false;
+                Jump();
+            }
+            animator.SetFloat("Velocity", meshAgent.velocity.magnitude);
         }
-      
-        if (running && meshAgent.isOnOffMeshLink)
-        {
-            running = false;
-            Jump();
-        }
-        animator.SetFloat("Velocity", meshAgent.velocity.magnitude);
     }
 
     public void Sleep(float mod = 1)
