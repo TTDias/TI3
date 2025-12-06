@@ -12,7 +12,6 @@ public class menu : MonoBehaviour
     public GameObject[] obj, slaider, pause, mudanças;
     float t = 0;
     int contafalas = 0;
-    bool chegou = false;
     static int plays = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,18 +43,16 @@ public class menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(GameManager.Statustutorial());
         if(SceneManager.GetActiveScene().name == "tutorial")
         {
-            Debug.Log(contafalas);
-            LeanTween.init();
-            if (!chegou)
+            GameManager.Mudartutorial(true);
+            //Debug.Log(GameManager.StatusPhone());
+            if (contafalas == 0 && GameManager.StatusPhone())
             {
-                LeanTween.move(player, new Vector3(4.659472f, 0.6474005f, 4.825624f), 0.5f).setOnComplete(()=>chegou = true);
-            }
-            LeanTween.scale(tutorialfala,new Vector3(1, 1, 1), 0.5f);
-            if (contafalas == 0)
-            {
-                falas.text = "ola minha filha como esta o gatinho do visinho, ainda esta com aquela doença.";
+                LeanTween.init();
+                LeanTween.scale(tutorialfala, new Vector3(1, 1, 1), 0.5f).setOnComplete(()=> { falas.text = "ola minha filha como esta o gatinho do visinho, ainda esta com aquela doença."; });
+
             }
             else if (contafalas == 1)
             {
@@ -103,10 +100,10 @@ public class menu : MonoBehaviour
                     LeanTween.scale(avatarvelho, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "Espero que tenha entendido tudo em filha e tenho certeza que tudo dara certo, quando for te visitar espera te dar 3 estrelinhas em hahahaha."; ; });
                 });
             }
-            else
-            {
-                SceneManager.LoadScene("menuinicial");
-            }
+            //else
+            //{
+                //SceneManager.LoadScene("menuinicial");
+            //
             
         }
     }

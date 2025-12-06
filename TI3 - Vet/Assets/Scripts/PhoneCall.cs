@@ -14,15 +14,23 @@ public class PhoneCall : InteractiveItem
 
     public override void Use()
     {
-        foreach (CatPlay cat in cats)
+        Debug.Log("aaaaaaaaaaaaaaaaa");
+        if (GameManager.Statustutorial())
         {
-            if (cat.catHurted)
+            GameManager.MudarPhone(true);
+        }
+        else
+        {
+            foreach (CatPlay cat in cats)
             {
-                cat.catHurted = false;
-                vetcall++;
-                GameManager.VetCall();
-                AnalyticsTest.Instance.AddAnalytics("Phone", "Vet called", vetcall.ToString());
-                break;
+                if (cat.catHurted)
+                {
+                    cat.catHurted = false;
+                    vetcall++;
+                    GameManager.VetCall();
+                    AnalyticsTest.Instance.AddAnalytics("Phone", "Vet called", vetcall.ToString());
+                    break;
+                }
             }
         }
     }
@@ -30,6 +38,10 @@ public class PhoneCall : InteractiveItem
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && cats.Any(cat => cat.catHurted))
+        {
+            Focus();
+        }
+        else if (GameManager.Statustutorial())
         {
             Focus();
         }

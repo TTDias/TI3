@@ -6,6 +6,8 @@ public class GameManager:MonoBehaviour
     static public float score = 0;
     static public float timer = 2 * 60;
     public static float starScore1 = 500, starScore2 = 800, starScore3 = 1000;
+
+    static bool tutorial, phonruse;
     
     static int loses = 0, victories = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -67,5 +69,22 @@ public class GameManager:MonoBehaviour
             AnalyticsTest.Instance.AddAnalytics("Game", "Victories", victories.ToString());
             SceneManager.LoadScene("TelaVitoria");
         } 
+    }
+
+    static public bool Statustutorial()
+    {
+        return tutorial;
+    }
+    static public void Mudartutorial(bool mudar)
+    {
+        tutorial = mudar;
+    }
+    static public bool StatusPhone()
+    {
+        return phonruse;
+    }
+    static public void MudarPhone(bool mudar)
+    {
+        phonruse = mudar;
     }
 }
