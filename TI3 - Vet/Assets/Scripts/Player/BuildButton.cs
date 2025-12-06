@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -35,7 +34,7 @@ public class BuildButton : MonoBehaviour
             time -= Time.deltaTime;
             clock.fillAmount = (maxtime - time) / maxtime;
         }
-        if(time <= 0 && reparing)
+        if(time <= 0 && reparing && !GameManager.Statustutorial())
         {
             clock.enabled = false;
             reparing = false;
@@ -50,6 +49,14 @@ public class BuildButton : MonoBehaviour
         
         if (distance.magnitude < 1.9 && !reparing)
         {
+            if (GameManager.Statustutorial())
+            {
+                if (item.name != "Phone")
+                {
+                    return;
+                }
+            }
+
             reparing = true;
             clock.enabled = true;
             time = 3;
@@ -79,38 +86,27 @@ public class BuildButton : MonoBehaviour
 
     public void Select(InteractiveItem item)
     {
-        if (GameManager.Statustutorial())
+        Vector3 distance = player.transform.position - item.transform.position;
+
+        if (distance.magnitude < 1.9 && !reparing)
         {
-            Vector3 distance = player.transform.position - item.transform.position;
-
-            if (distance.magnitude < 1.9 && !reparing && (item.name == "Phone" || GameManager.StatusPhone()))
+            if (GameManager.Statustutorial())
             {
-                useButton.gameObject.SetActive(true);
-                EventTrigger trigger = item.gameObject.GetComponentInChildren<EventTrigger>();
-
-                useButton.onClick.AddListener(() =>
+                if(item.name != "Phone")
                 {
-                    PointerEventData eventData = new PointerEventData(EventSystem.current);
-                    trigger.OnPointerDown(eventData);
-                });
+                    return;
+                }
             }
-        }
-        else
-        {
-            Vector3 distance = player.transform.position - item.transform.position;
+            useButton.gameObject.SetActive(true);
+            EventTrigger trigger = item.gameObject.GetComponentInChildren<EventTrigger>();
 
-            if (distance.magnitude < 1.9 && !reparing)
+            useButton.onClick.AddListener(() =>
             {
-                useButton.gameObject.SetActive(true);
-                EventTrigger trigger = item.gameObject.GetComponentInChildren<EventTrigger>();
-
-                useButton.onClick.AddListener(() =>
-                {
-                    PointerEventData eventData = new PointerEventData(EventSystem.current);
-                    trigger.OnPointerDown(eventData);
-                });
-            }
+                PointerEventData eventData = new PointerEventData(EventSystem.current);
+                trigger.OnPointerDown(eventData);
+            });
         }
+
     }
 
 

@@ -14,6 +14,7 @@ public abstract class InteractiveItem : MonoBehaviour
 
     public void Unfocus()
     {
+        BuildButton.Instance.Deselect();
         highlight.OutlineColor = Color.black;
     }
 

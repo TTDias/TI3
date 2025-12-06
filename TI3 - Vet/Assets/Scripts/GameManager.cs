@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,17 +8,22 @@ public class GameManager:MonoBehaviour
     static public float timer = 2 * 60;
     public static float starScore1 = 500, starScore2 = 800, starScore3 = 1000;
 
-    static bool tutorial, phonruse;
+    static bool tutorial = true, phonruse = false;
     
     static int loses = 0, victories = 0;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     static public void GameStart()
     {
         score = 0;
         timer = 2 * 60;
     }
 
-    // Update is called once per frame
+    private void Start()
+    {
+        Debug.Log(tutorial);
+        GameStart();
+    }
+
     void Update()
     {
         if (timer <= 0f) GameEnd();

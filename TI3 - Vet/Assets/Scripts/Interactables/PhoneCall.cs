@@ -14,7 +14,6 @@ public class PhoneCall : InteractiveItem
 
     public override void Use()
     {
-        Debug.Log("aaaaaaaaaaaaaaaaa");
         if (GameManager.Statustutorial())
         {
             GameManager.MudarPhone(true);
@@ -59,7 +58,7 @@ public class PhoneCall : InteractiveItem
     {
         if (other.tag == "Player")
         {
-            BuildButton.Instance.Deselect();
+            Unfocus();
         }
     }
 }

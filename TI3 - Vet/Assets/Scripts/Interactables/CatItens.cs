@@ -47,6 +47,10 @@ public class CatItens : InteractiveItem
 
     private void OnTriggerEnter(Collider other)
     {
+        if (GameManager.Statustutorial())
+        {
+            return;
+        }
 
         if (other.tag == "Player" && broken)
         {
@@ -76,6 +80,11 @@ public class CatItens : InteractiveItem
 
     private void OnTriggerStay(Collider other)
     {
+        if (GameManager.Statustutorial())
+        {
+            return;
+        }
+
         if (other.tag == "Player" && broken)
         {
             Focus();
@@ -98,7 +107,6 @@ public class CatItens : InteractiveItem
     {
         if(other.tag == "Player")
         {
-            BuildButton.Instance.Deselect();
             Unfocus();
         }
     }
