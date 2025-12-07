@@ -49,6 +49,8 @@ public class PlayerPickup : MonoBehaviour
 
     void BoxPickup(GameObject obj)
     {
+        obj.GetComponent<BoxCollider>().enabled = false;
+        obj.GetComponent<Rigidbody>().useGravity = false;
         obj.transform.parent = pickup;
         obj.transform.localPosition = Vector3.zero;
         carrying = true;
@@ -62,7 +64,6 @@ public class PlayerPickup : MonoBehaviour
         carrying = false;
         PlayerSoundMannager.Instance.PlayPop();
         PlaceBox?.Invoke();
-        pickup.GetChild(0).GetComponent<Rigidbody>().useGravity = false;
         area.BuildStart(pickup.GetChild(0).gameObject);
         GetComponent<PlayerMove>().anima.SetLayerWeight(1, 0);
     }
