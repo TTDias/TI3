@@ -18,12 +18,6 @@ public class GameManager:MonoBehaviour
         timer = 2 * 60;
     }
 
-    private void Start()
-    {
-        Debug.Log(tutorial);
-        GameStart();
-    }
-
     void Update()
     {
         if (timer <= 0f) GameEnd();
