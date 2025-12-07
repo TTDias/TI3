@@ -57,7 +57,7 @@ public class BoxThrower : MonoBehaviour
         GameObject newBox = boxStack.Pop();
         newBox.transform.SetParent(transform);
         newBox.transform.position = boxThrowPoint.position;
-        float magnitude = 3.5f;
+        float magnitude = 4.5f;
         newBox.GetComponent<Rigidbody>().AddForce(new Vector3(0, 2, 1) * magnitude, ForceMode.Impulse);
         truck = false;
     }
