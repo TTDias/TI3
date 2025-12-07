@@ -8,10 +8,10 @@ public class BoxThrower : MonoBehaviour
     public GameObject box;
     Stack<GameObject> boxStack = new Stack<GameObject>();
 
-    float timer, waitTime = 3;
-    bool truck = false, truckRun = false;
+    public float timer, waitTime = 3;
+    public bool truck = false, truckRun = false;
 
-    public Animator house;
+    public Animator TruckAnimator;
     void Start()
     {
         timer = 3;
@@ -33,7 +33,7 @@ public class BoxThrower : MonoBehaviour
             return;
 
 
-        if(transform.childCount < 3 && boxStack.Count > 0 && !truck)
+        if(transform.childCount < 2 && boxStack.Count > 0 && !truck)
         {
             truck = true;
             truckRun = true;
@@ -47,7 +47,7 @@ public class BoxThrower : MonoBehaviour
         else if (truckRun)
         {
             truckRun = false;
-            house.SetTrigger("Run");
+            TruckAnimator.SetTrigger("Run");
         }
         
     }
@@ -57,8 +57,8 @@ public class BoxThrower : MonoBehaviour
         GameObject newBox = boxStack.Pop();
         newBox.transform.SetParent(transform);
         newBox.transform.position = boxThrowPoint.position;
-        float magnitude = 2;
-        newBox.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, 1) * magnitude);
+        float magnitude = 3.5f;
+        newBox.GetComponent<Rigidbody>().AddForce(new Vector3(0, 2, 1) * magnitude, ForceMode.Impulse);
         truck = false;
     }
 

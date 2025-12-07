@@ -102,7 +102,7 @@ MonoBehaviour:
   constructions: {fileID: 0}
   boxThrowPoint: {fileID: 6347412781245632205}
   box: {fileID: 2218720773708272249, guid: 04536a6f8cf2f8b4ba003d11a9b1b000, type: 3}
-  house: {fileID: 0}
+  TruckAnimator: {fileID: 0}
 --- !u!1 &9027689163155159134
 GameObject:
   m_ObjectHideFlags: 0
