@@ -62,6 +62,7 @@ public class PlayerPickup : MonoBehaviour
         carrying = false;
         PlayerSoundMannager.Instance.PlayPop();
         PlaceBox?.Invoke();
+        pickup.GetChild(0).GetComponent<Rigidbody>().useGravity = false;
         area.BuildStart(pickup.GetChild(0).gameObject);
         GetComponent<PlayerMove>().anima.SetLayerWeight(1, 0);
     }

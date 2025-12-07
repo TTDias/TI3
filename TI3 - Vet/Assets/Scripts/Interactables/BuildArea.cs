@@ -54,8 +54,8 @@ public class BuildArea : InteractiveItem
     public override void Use()
     {
         LeanTween.init();
-        LeanTween.scale(boxConstruct, Vector3.one * 100, 0);
-        LeanTween.scale(boxConstruct, Vector3.one * 70f, 0.3f).setLoopPingPong(6).setOnComplete(Build);
+        LeanTween.scale(boxConstruct, Vector3.one, 0);
+        LeanTween.scale(boxConstruct, Vector3.one * 0.7f, 0.3f).setLoopPingPong(6).setOnComplete(Build);
     }
 
     void Build()
