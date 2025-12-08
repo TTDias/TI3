@@ -57,14 +57,27 @@ public class BuildButton : MonoBehaviour
                 }
             }
 
-            reparing = true;
-            clock.enabled = true;
-            time = 3;
-            maxtime = time;
-            player.UseItem();
-            player.transform.LookAt(item.transform);
+            if(item.name == "Phone")
+            {
+                reparing = true;
+                clock.enabled = false;
+                time = 0.3f;
+                maxtime = time;
+                player.UseItem();
+                player.transform.LookAt(item.transform.GetChild(0));
+            }
+            else
+            {
+                reparing = true;
+                clock.enabled = true;
+                time = 3;
+                maxtime = time;
+                player.UseItem();
+                player.transform.LookAt(item.transform);
+            }
             item.Use();
             Deselect();
+
         }
         else if(!reparing)
         {
