@@ -77,7 +77,7 @@ MonoBehaviour:
   audioSource: {fileID: 3484284876458656680}
   meow: {fileID: 8300000, guid: ab1551b2ddd746a4ead7c6b03d649e61, type: 3}
   meow2: {fileID: 8300000, guid: 5f85606a2bed4e64390651aa8181993e, type: 3}
-  eating: {fileID: 8300000, guid: 735aee7ae2d03c64b82ed1bf1d828343, type: 3}
+  eating: {fileID: 8300000, guid: 301a9a2f55950bc4fa33dc8f82e2ab12, type: 3}
   purring: {fileID: 8300000, guid: bd473596c48e2c348ab02934675941a3, type: 3}
   angry: {fileID: 8300000, guid: eeddf4dea13ddbb4886537339434bdda, type: 3}
 --- !u!195 &4559742634126012049

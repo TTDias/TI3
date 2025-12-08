@@ -10,12 +10,21 @@ public class PhoneCall : InteractiveItem
     {
         highlight = GetComponent<Outline>();
         vetcall = 0;
+        if (GameManager.Statustutorial())
+        {
+            GetComponent<AudioSource>().Play();
+            GetComponent<Animator>().SetBool("Ringing", true);
+        }
     }
+
 
     public override void Use()
     {
         if (GameManager.Statustutorial())
         {
+            GetComponent<AudioSource>().Stop();
+            GetComponent<Animator>().SetBool("Ringing", false);
+            
             GameManager.MudarPhone(true);
         }
         else

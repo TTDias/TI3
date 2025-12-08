@@ -46,8 +46,8 @@ public class BuildButton : MonoBehaviour
     {
         
         Vector3 distance = player.transform.position - item.transform.position;
-        
-        if (distance.magnitude < 1.9 && !reparing)
+
+        if ((distance.magnitude < 1.9 && !reparing) || item.name == "Phone")
         {
             if (GameManager.Statustutorial())
             {
@@ -88,7 +88,7 @@ public class BuildButton : MonoBehaviour
     {
         Vector3 distance = player.transform.position - item.transform.position;
 
-        if (distance.magnitude < 1.9 && !reparing)
+        if ((distance.magnitude < 1.9 && !reparing) || item.name == "Phone")
         {
             if (GameManager.Statustutorial())
             {

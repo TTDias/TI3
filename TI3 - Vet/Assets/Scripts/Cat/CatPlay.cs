@@ -32,7 +32,7 @@ public class CatPlay : MonoBehaviour
     {
         //GetComponent<Animation>().Play("CatItemUse");
         item.Broke();
-        LeanTween.delayedCall(1.5f, Sleep);
+        LeanTween.delayedCall(2f, Sleep);
     }
 
     public void Call()

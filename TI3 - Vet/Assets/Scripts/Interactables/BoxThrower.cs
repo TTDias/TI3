@@ -54,6 +54,7 @@ public class BoxThrower : MonoBehaviour
 
     public void ThrowBox()
     {
+        GetComponent<AudioSource>().Play();
         GameObject newBox = boxStack.Pop();
         newBox.transform.SetParent(transform);
         newBox.transform.position = boxThrowPoint.position;
