@@ -48,59 +48,74 @@ public class menu : MonoBehaviour
         //Debug.Log(GameManager.Statustutorial());
         if (GameManager.Statustutorial())
         {
+            
             //GameManager.Mudartutorial(true);
             //Debug.Log(GameManager.StatusPhone());
             if (contafalas == 0 && GameManager.StatusPhone())
             {
+                avatarvelho.transform.localScale = Vector3.zero;
+                avatarveterinario.transform.localScale = Vector3.one;
                 LeanTween.init();
-                LeanTween.scale(tutorialfala, new Vector3(1, 1, 1), 0.5f).setOnComplete(() => { falas.text = "ola minha filha como esta o gatinho do visinho, ainda esta com aquela doença."; });
+                LeanTween.scale(tutorialfala, new Vector3(1, 1, 1), 0.5f).setOnComplete(() => { falas.text = "Olá! Sou eu, seu veterinário. Descobri que você se mudou, espero que esteja gostando da casa nova."; });
 
             }
             else if (contafalas == 1)
             {
-                LeanTween.scale(imagansFala[0], Vector3.zero, 0.2f);
-                LeanTween.scale(imagansFala[1], Vector3.one, 0.2f);
                 LeanTween.cancel(tutorialfala);
-                falas.text = "Lenbrese voce pode andar pela casa segurando o dedo ou segurando o clik do mouse para poder andar ate o local desejado.";
+                falas.text = "Estou te ligando porque percebi que a região onde está tendo alguns casos de esporotricose. Cuide bem do seu gato para que ele não se contamine.";
 
             }
             else if (contafalas == 2)
             {
-                falas.text = "Seu gatinho e bem nervosinho ne senpre gasta seu brinquedos no primeiro uso lenbrese de consertalos, ao chegar perto de um brinquedo e so clicar no botao 'usar' emcima de voce filha.";
+                falas.text = "Lembre-se de sempre trocar sua água e limpar a caixinha de areia, se não ele pode sair de casa para atender as necessidades na rua. E tenha brinquedinhos para ele, para fazê-lo gastar energia";
 
             }
             else if (contafalas == 3)
             {
-                LeanTween.cancel(imagansFala[0]);
-                LeanTween.scale(imagansFala[1], Vector3.zero, 0.2f);
-                LeanTween.scale(imagansFala[2], Vector3.one, 0.2f);
-                falas.text = "Sua mudança ja deve estar chegando essa enpresa senpre deixa uma caixa no jardin, nao deixe de arrmar sua casa menina, principalmente as janelas tenho certeza que cera bem recompensado por isso, para colocar a mudança e so chegar perto de umas das areas brancas e apertar o mesmo botao 'usar'.";
+                falas.text = "Coloque telas de proteção na janela de sua casa, para que ele não fuja. Tome cuidado, pois se ele fugir, pode brigar com outros gatos e contrair a doença.";
 
             }
             else if (contafalas == 4)
             {
-                LeanTween.cancel(imagansFala[1]);
-                LeanTween.scale(imagansFala[2], Vector3.zero, 0.2f);
-                LeanTween.scale(imagansFala[3], Vector3.one, 0.2f);
-                falas.text = "lenbrese do que seu veterinario disse";
+                falas.text = "Se ele voltar machucado de casa, nao deixe de me ligar, basta usar este telefone. Até mais. \n*Click* ";
             }
             else if (contafalas == 5)
             {
-                LeanTween.cancel(imagansFala[2]); LeanTween.cancel(imagansFala[3]);
-                LeanTween.scale(avatarvelho, Vector3.zero, 0.5f).setOnComplete(() =>
+                LeanTween.scale(avatarveterinario, Vector3.zero, 0.5f).setOnComplete(() =>
                 {
-                    LeanTween.scale(avatarveterinario, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "'lenbrese sempre das minhas anatosoes, mas qualquercoisa e so me ligar tenho certesa qque vou ajudar com o gatinho.'"; });
+                    falas.text = "trrrrim-trrrim\n*Click*";
                 });
 
             }
             else if (contafalas == 6)
             {
-                LeanTween.scale(avatarveterinario, Vector3.zero, 0.5f).setOnComplete(() =>
-                {
-                    LeanTween.scale(avatarvelho, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "Espero que tenha entendido tudo em filha e tenho certeza que tudo dara certo, quando for te visitar espera te dar 3 estrelinhas em hahahaha.";});
-                });
+                avatarveterinario.transform.localScale = Vector3.zero;
+                imagansFala[0].transform.localScale = Vector3.one;
+                LeanTween.scale(avatarvelho, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "Oi minha criança, como você está?";});
             }
-            else if (contafalas > 6)
+            else if (contafalas == 7)
+            {
+                avatarvelho.transform.localScale = Vector3.one;
+
+                LeanTween.scale(imagansFala[0], Vector3.zero, 0.2f);
+                LeanTween.scale(imagansFala[1], Vector3.one, 0.2f);
+                falas.text = "As últimas caixas da sua mudança devem estar chegando, fique atento com a buzina do caminhão.";
+            }
+            else if(contafalas == 8)
+            {
+                LeanTween.cancel(imagansFala[1]);
+                LeanTween.scale(imagansFala[1], Vector3.zero, 0.2f);
+                LeanTween.scale(imagansFala[2], Vector3.one, 0.2f);
+                falas.text = "Fiquei sabendo que um vizinho tem um gato doente e conversei com seu veterinário. Comprei umas telas para você botar nas janelas da sua casa que devem chegar com as caixas da mudança";
+            }
+            else if (contafalas == 9)
+            {
+                LeanTween.cancel(imagansFala[2]);
+                LeanTween.scale(imagansFala[2], Vector3.zero, 0.2f);
+                LeanTween.scale(imagansFala[3], Vector3.one, 0.2f);
+                falas.text = "Não se esqueça de construir elas, e lemnre de cuidar do seu gato. Ele é bem chatinho, se escutar ele miando você sabe que ele quer alguma coisa. \nTchau tchau!";
+            }
+            else if (contafalas > 9)
             {
                 LeanTween.scale(tutorialfala, Vector3.zero, 0.5f);
                 GameManager.Mudartutorial(false);
