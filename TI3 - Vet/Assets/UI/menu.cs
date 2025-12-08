@@ -245,7 +245,12 @@ public class menu : MonoBehaviour
     }
     public void botaoSair()
     {
-        if(SceneManager.GetActiveScene().name != "menuinicial")
+        if (SceneManager.GetActiveScene().name == "TelaDerrota")
+        {
+            
+            SceneManager.LoadScene("menuinicial");
+        }
+        else if (SceneManager.GetActiveScene().name != "menuinicial")
         {
             AnalyticsTest.Instance.Save();
             SceneManager.LoadScene("menuinicial");
