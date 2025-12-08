@@ -9,7 +9,7 @@ public class menu : MonoBehaviour
     public GameObject dicas, sairPopup, canvasdicatxt, tutorialfala, avatarvelho, avatarveterinario;
     public Image imageF;
     public Text txtajuda, txtajudaJogo, falas;
-    public GameObject[] obj, slaider, pause, mudanças;
+    public GameObject[] obj, slaider, pause, mudanças, imagansFala;
     float t = 0;
     int contafalas = 0;
     static int plays = 0;
@@ -17,9 +17,11 @@ public class menu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        contafalas = 0;
         if (SceneManager.GetActiveScene().name == "menuinicial")
         {
             t = 0;
+            LeanTween.cancelAll();
             LeanTween.init();
             foreach (GameObject go in obj) 
             {
@@ -56,6 +58,9 @@ public class menu : MonoBehaviour
             }
             else if (contafalas == 1)
             {
+                LeanTween.scale(imagansFala[0], Vector3.zero, 0.2f);
+                LeanTween.scale(imagansFala[1], Vector3.one, 0.2f);
+                LeanTween.cancel(tutorialfala);
                 falas.text = "Lenbrese voce pode andar pela casa segurando o dedo ou segurando o clik do mouse para poder andar ate o local desejado.";
 
             }
@@ -66,15 +71,22 @@ public class menu : MonoBehaviour
             }
             else if (contafalas == 3)
             {
+                LeanTween.cancel(imagansFala[0]);
+                LeanTween.scale(imagansFala[1], Vector3.zero, 0.2f);
+                LeanTween.scale(imagansFala[2], Vector3.one, 0.2f);
                 falas.text = "Sua mudança ja deve estar chegando essa enpresa senpre deixa uma caixa no jardin, nao deixe de arrmar sua casa menina, principalmente as janelas tenho certeza que cera bem recompensado por isso, para colocar a mudança e so chegar perto de umas das areas brancas e apertar o mesmo botao 'usar'.";
 
             }
             else if (contafalas == 4)
             {
+                LeanTween.cancel(imagansFala[1]);
+                LeanTween.scale(imagansFala[2], Vector3.zero, 0.2f);
+                LeanTween.scale(imagansFala[3], Vector3.one, 0.2f);
                 falas.text = "lenbrese do que seu veterinario disse";
             }
             else if (contafalas == 5)
             {
+                LeanTween.cancel(imagansFala[2]); LeanTween.cancel(imagansFala[3]);
                 LeanTween.scale(avatarvelho, Vector3.zero, 0.5f).setOnComplete(() =>
                 {
                     LeanTween.scale(avatarveterinario, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "'lenbrese sempre das minhas anatosoes, mas qualquercoisa e so me ligar tenho certesa qque vou ajudar com o gatinho.'"; });
@@ -85,13 +97,14 @@ public class menu : MonoBehaviour
             {
                 LeanTween.scale(avatarveterinario, Vector3.zero, 0.5f).setOnComplete(() =>
                 {
-                    LeanTween.scale(avatarvelho, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "Espero que tenha entendido tudo em filha e tenho certeza que tudo dara certo, quando for te visitar espera te dar 3 estrelinhas em hahahaha."; ; });
+                    LeanTween.scale(avatarvelho, Vector3.one, 0.5f).setOnComplete(() => { falas.text = "Espero que tenha entendido tudo em filha e tenho certeza que tudo dara certo, quando for te visitar espera te dar 3 estrelinhas em hahahaha.";});
                 });
             }
             else if (contafalas > 6)
             {
                 LeanTween.scale(tutorialfala, Vector3.zero, 0.5f);
                 GameManager.Mudartutorial(false);
+                GameManager.MudarPhone(false);
             }
         }
     }
