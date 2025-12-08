@@ -49,6 +49,8 @@ public class CatMove : MonoBehaviour
 
     public void Sleep(float mod = 1)
     {
+        GetComponent<CatPlay>().status = "Normal";
+
         sleepCooldown = sleepTime * mod;
         meshAgent.SetDestination(sleepPoint.position);
         sleeping = true;
@@ -79,6 +81,11 @@ public class CatMove : MonoBehaviour
 
     void Jump()
     {
+        CatPlay cat = GetComponent<CatPlay>();
+
+        if(cat.catHurted)
+            cat.status = "Sad";
+
         OffMeshLinkData data = meshAgent.currentOffMeshLinkData;
 
         Vector3 end = data.endPos;

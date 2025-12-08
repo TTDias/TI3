@@ -3,10 +3,10 @@ using UnityEngine;
 public class CatPlay : MonoBehaviour
 {
     private CatSoundMannager catSound;
+    public string status = "Normal";
     public float waitTime;
     public float cooldown;
     public bool waiting;
-
 
     float fightProb = 0;
 
@@ -61,19 +61,20 @@ public class CatPlay : MonoBehaviour
     {
         runaway ++;
         AnalyticsTest.Instance.AddAnalytics("Cat", "Runaway", runaway.ToString());
-        
+
+        status = "Angry";
         if (fightProb <= Random.value)
         {
             GameManager.RunawayScoreDown();
             fightProb += 0.5f;
-            catSound.PlayAngry();
+            catSound.PlayMeow2();
         }
         else
         {
             catHurted = true;
             GameManager.FightPenality();
             fightProb = 0;
-            catSound.PlayMeow2();
+            catSound.PlayAngry();
         }
             GetComponent<CatMove>().Runaway();
     }

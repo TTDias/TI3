@@ -311,7 +311,7 @@ public class menu : MonoBehaviour
     }
     public void botaotextoadica()
     {
-            txtajuda.text = "Você pode se movimentar mantendo o dedo precionado na tela e consertar os brinquedos do gato com o botão 'consertar' no canto da tela.";
+            txtajuda.text = "Você pode se movimentar clicando e segurando o clique na tela e consertar os brinquedos do gato e construir moveis com o botão 'usar' que aparece em cima do personagem.";
     }
     public void botaotextoadica1()
     {

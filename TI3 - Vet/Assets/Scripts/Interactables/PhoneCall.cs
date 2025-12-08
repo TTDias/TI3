@@ -37,6 +37,7 @@ public class PhoneCall : InteractiveItem
                     vetcall++;
                     GameManager.VetCall();
                     AnalyticsTest.Instance.AddAnalytics("Phone", "Vet called", vetcall.ToString());
+                    cat.status = "Normal";
                     break;
                 }
             }

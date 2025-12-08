@@ -8,6 +8,8 @@ public class UiManager : MonoBehaviour
     public Transform pointer;
     public Image catBar;
 
+    public GameObject[] status;
+
     ColorBlock colors;
     Color red;
     Color yellow = new Color(255, 170, 0);
@@ -34,6 +36,25 @@ public class UiManager : MonoBehaviour
     
     void Update()
     {
+        if (cat.status == "Normal")
+        {
+            status[0].SetActive(true);
+            status[1].SetActive(false);
+            status[2].SetActive(false);
+        }
+        if (cat.status == "Angry")
+        {
+            status[1].SetActive(true);
+            status[0].SetActive(false);
+            status[2].SetActive(false);
+        }
+        if (cat.status == "Sad")
+        {
+            status[2].SetActive(true);
+            status[0].SetActive(false);
+            status[1].SetActive(false);
+        }
+
         if (!GameManager.Statustutorial() && !levelTime.gameObject.activeSelf)
         {
             levelTime.gameObject.SetActive(true);
