@@ -35,4 +35,12 @@ public class AudioControl : MonoBehaviour
         music.onValueChanged.RemoveAllListeners();
         sfx.onValueChanged.RemoveAllListeners();
     }
+
+    private void Update()
+    {
+        if (!GameManager.Statustutorial() && !GetComponentInChildren<AudioSource>().isPlaying)
+        {
+            GetComponentInChildren<AudioSource>().Play();
+        }
+    }
 }
