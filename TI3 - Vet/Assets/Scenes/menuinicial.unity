@@ -4670,6 +4670,54 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4024057456596047206, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_Name
+      value: Nome
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027488029363143951, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_Text
+      value: Segura esse gato!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.08946246
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.112899624
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.13207549
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 56a79f4a31aadef45b1f8e808ed8b7c8, type: 3}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 117
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_FontData.m_RichText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742455747769219131, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4749393103653027136, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4855,12 +4903,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9212494585026860253, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 283.288
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212494585026860253, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99770665
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212494585026860253, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212494585026860253, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212494585026860253, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.067686625
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212494585026860253, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9212494585026860253, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212494585026860253, guid: 7a42ff6c05fff6140b20da51dab443f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 7.762
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
