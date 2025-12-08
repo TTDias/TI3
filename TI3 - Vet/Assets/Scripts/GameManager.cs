@@ -8,7 +8,7 @@ public class GameManager:MonoBehaviour
     static public float timer = 2 * 60;
     public static float starScore1 = 500, starScore2 = 800, starScore3 = 1000;
 
-    static bool tutorial = false, phonruse = false;
+    static bool tutorial = true, phonruse = false;
     
     static int loses = 0, victories = 0;
     

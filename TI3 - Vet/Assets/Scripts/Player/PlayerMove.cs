@@ -2,20 +2,25 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 
 public class PlayerMove : MonoBehaviour
 {
-    public InputAction click;
-
     public NavMeshAgent agent;
     bool isPressed;
-    Vector2 position;
+    Vector2 position, moveInput;
     public Animator anima;
     float idleTime = 0;
     public LayerMask ground;
     void Update()
     {
+
+        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
+
+        if(move != Vector3.zero)
+        {
+            agent.SetDestination(transform.position + move*2);
+        }
+
         anima.SetFloat("Blend", agent.velocity.magnitude);
         if (gameObject.name == "PlayerFinalVariant")
             if (BuildButton.Instance.reparing == true) return;
@@ -56,6 +61,11 @@ public class PlayerMove : MonoBehaviour
     public void OnPointerClick(InputAction.CallbackContext context)
     {
         isPressed = context.ReadValue<float>() > 0;
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
     }
 
     public void UseItem()

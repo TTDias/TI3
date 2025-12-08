@@ -72,7 +72,7 @@ public class CatItens : InteractiveItem
                 other.GetComponent<CatPlay>().Play(this);
             }
         }
-        else if (other.tag == "Cat" && broken)
+        else if (other.tag == "Cat" && broken && !other.GetComponent<CatMove>().running)
         {
             other.GetComponent<CatPlay>().Call();
         }

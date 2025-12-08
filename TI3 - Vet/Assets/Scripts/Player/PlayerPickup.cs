@@ -52,7 +52,7 @@ public class PlayerPickup : MonoBehaviour
         obj.GetComponent<BoxCollider>().enabled = false;
         obj.GetComponent<Rigidbody>().useGravity = false;
         obj.transform.parent = pickup;
-        obj.transform.localPosition = Vector3.zero;
+        obj.transform.position = pickup.position;
         carrying = true;
         GetComponent<PlayerMove>().anima.SetLayerWeight(1, 1);
         PlayerSoundMannager.Instance.PlayPop();

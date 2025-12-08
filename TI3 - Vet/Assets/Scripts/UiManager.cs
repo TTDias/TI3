@@ -26,11 +26,20 @@ public class UiManager : MonoBehaviour
 
         catTolerance.maxValue = cat.waitTime;
         catTolerance.value = cat.waitTime;
+
+        levelTime.gameObject.SetActive(false);
+        stars.gameObject.SetActive(false);
     }
 
     
     void Update()
     {
+        if (!GameManager.Statustutorial() && !levelTime.gameObject.activeSelf)
+        {
+            levelTime.gameObject.SetActive(true);
+            stars.gameObject.SetActive(true);
+        }
+
         levelTime.value = levelTime.maxValue - GameManager.timer;
         if (GameManager.score < 0)
         {
