@@ -1645,7 +1645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb116526932f439ebe555cae70ab696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 852610642}
   delay: 1.5
 --- !u!224 &2009916492
 RectTransform:
