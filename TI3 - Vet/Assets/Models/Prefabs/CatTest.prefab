@@ -357,9 +357,13 @@ PrefabInstance:
       value: GatoJogo
       objectReference: {fileID: 0}
     - target: {fileID: 3587090125629766202, guid: a462d132807e5b241b3d2bf424e2d2f3, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5782435540675339930, guid: a80bea11519c76a4da966ae4526dc49c, type: 3}
+    - target: {fileID: 3587090125629766202, guid: a462d132807e5b241b3d2bf424e2d2f3, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: cce93c64d054017489c624d02d38bee5, type: 2}
+      objectReference: {fileID: 2100000, guid: b9f7b40a7aa1f0045be0d6a5296f1743, type: 2}
     - target: {fileID: 3587090125629766202, guid: a462d132807e5b241b3d2bf424e2d2f3, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 

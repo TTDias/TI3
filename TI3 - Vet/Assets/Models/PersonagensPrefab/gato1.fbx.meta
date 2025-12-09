@@ -3,7 +3,47 @@ guid: a80bea11519c76a4da966ae4526dc49c
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AmareloColeira
+    second: {fileID: 2100000, guid: 441d4e1957407c84b9b6a52333f1c91a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Azul
+    second: {fileID: 2100000, guid: 035eca6ef6c0992448336b8ebef8bd05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BrancoDente
+    second: {fileID: 2100000, guid: 352793c412168074f921c5095b80d443, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GatoBlusaMaterial
+    second: {fileID: 2100000, guid: 882c7e5f8d368d04b8ee974033183f9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GatoMangasMaterial
+    second: {fileID: 2100000, guid: cbdca49d6ac91514f9ed58aafc35fd2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 1b8f6b307372d8c40876afff1b1babfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RosaOrelhas
+    second: {fileID: 2100000, guid: decd843727ffced4d8324b5042551bcf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pelogato
+    second: {fileID: 2100000, guid: b9f7b40a7aa1f0045be0d6a5296f1743, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
