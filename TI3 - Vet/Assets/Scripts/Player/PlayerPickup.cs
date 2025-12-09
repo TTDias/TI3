@@ -51,6 +51,7 @@ public class PlayerPickup : MonoBehaviour
     {
         obj.GetComponent<BoxCollider>().enabled = false;
         obj.GetComponent<Rigidbody>().useGravity = false;
+        obj.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         obj.transform.parent = pickup;
         obj.transform.position = pickup.position;
         carrying = true;
