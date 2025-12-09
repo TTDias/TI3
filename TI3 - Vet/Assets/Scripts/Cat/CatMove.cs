@@ -49,7 +49,10 @@ public class CatMove : MonoBehaviour
 
     public void Sleep(float mod = 1)
     {
-        GetComponent<CatPlay>().status = "Normal";
+        CatPlay cat = GetComponent<CatPlay>();
+
+        if (cat.catHurted)
+            cat.status = "Normal";
 
         sleepCooldown = sleepTime * mod;
         meshAgent.SetDestination(sleepPoint.position);
